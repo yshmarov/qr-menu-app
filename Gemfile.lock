@@ -89,6 +89,8 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -215,6 +217,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker (~> 2.21)
   importmap-rails
   jbuilder
   pg (~> 1.1)

@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+10.times do
+  MenuItem.create(
+    name: Faker::Food.dish,
+    price: rand(10..50) * 100
+  )
+end

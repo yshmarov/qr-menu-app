@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <%= link_to_unless_current "Menu", menu_items_path %>
+    <%= link_to_unless_current "Order items", order_items_path %>
+    <%= link_to_unless_current "Orders", orders_path %>
     <%= yield %>
   </body>
 </html>
