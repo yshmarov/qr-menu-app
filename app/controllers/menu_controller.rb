@@ -8,11 +8,10 @@ class MenuController < ApplicationController
   end
 
   # the default url to open from QR
-  # assign_table_from_qr
   def qr
-    session[:table_delivery] = parmas[:table_delivery]
+    session[:table_delivery] = params[:table_delivery]
+    redirect_to menu_path    
     # if request.post?
-
     # remove table_delivery from session when the order with it is "submitted" in orders#update
     # session[:table_delivery] = nil
   end
