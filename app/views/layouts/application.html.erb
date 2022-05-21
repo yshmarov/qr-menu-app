@@ -14,24 +14,25 @@
   <body>
     <header>
       <h1>
+        <i class="fa-solid fa-utensils"></i>
         StepByStep Menu
       </h1>
       <nav>
-        <%= link_to queue_path do %>
+        <%= active_link_to queue_path do %>
           <i class="fa-solid fa-stopwatch"></i>
           Queue
         <% end %>
-        <%= link_to menu_path do %>
+        <%= active_link_to menu_path do %>
           <i class="fa-solid fa-list"></i>
           Menu
         <% end %>
-        <%= link_to orders_path do %>
+        <%= active_link_to orders_path do %>
           <i class="fa-solid fa-clock-rotate-left"></i>
           My Orders:
           <%= @my_orders&.count %>
         <% end %>
         <% if @current_order %>
-          <%= link_to @current_order do %>
+          <%= active_link_to @current_order do %>
             <%#= @current_order.id %>
             <i class="fa-solid fa-cart-shopping"></i>
             <%= @current_order.order_items.map(&:quantity).sum %>
