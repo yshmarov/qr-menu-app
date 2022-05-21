@@ -29,6 +29,8 @@ class MenuController < ApplicationController
     @order_item.calculate_total_price
     @order.calculate_total_price
 
+    @current_order = @order
+
     respond_to do |format|
       format.html do
         redirect_to menu_url, notice: "#{@menu_item.name} added to cart"

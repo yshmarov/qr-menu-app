@@ -19,7 +19,7 @@
   </p>
 
   <% if order.draft? %>
-    <%= button_to order_path(order.id), params: {order: { id: order.id, status: Order.statuses[:processing] }}, method: :put do %>
+    <%= button_to order_path(order.id), params: {order: { id: order.id, status: Order.statuses[:submitted] }}, method: :put do %>
       <i class="fa-solid fa-credit-card"></i>
       Complete order:
       <%= order.total_price/100.to_d %> PLN
