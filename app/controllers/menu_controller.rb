@@ -33,6 +33,13 @@ class MenuController < ApplicationController
       format.html do
         redirect_to menu_url, notice: "#{@menu_item.name} added to cart"
       end
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace(@menu_item, partial: 'menu/menu_item', locals: { menu_item: @menu_item })
+          # flash
+          # counter
+        ]
+      end
     end
   end
 end
