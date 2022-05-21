@@ -11,6 +11,11 @@
   </p>
 
   <p>
+    <strong>Delivery:</strong>
+    <%= simple_format order.delivery_details %>
+  </p>
+
+  <p>
     <strong>Items ordered:</strong>
     <%= order.order_items.map(&:quantity).sum %>
     <%#= order.order_items.count %>
