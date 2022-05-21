@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'menu', to: 'static_pages#menu'
-  get 'queue', to: 'static_pages#queue'
+  get 'menu', to: 'menu#index'
+  get 'queue', to: 'queue#index'
   resources :orders do
     collection do
       get :all

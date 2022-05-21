@@ -8,6 +8,6 @@
 <%= turbo_stream_from :orders_list %>
 <div id="queue">
   <% @orders.each do |order| %>
-    <%= render partial: "static_pages/queue_item", locals: {order: order} %>
+    <%= render partial: "queue/queue_item", locals: {order: order} %>
   <% end %>
 </div>
