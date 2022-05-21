@@ -1,0 +1,13 @@
+<h1>
+  Orders in progress
+</h1>
+<div id="queue">
+  <% @orders.each do |order| %>
+    <blockquote>
+      Order #<%= order.id %>
+      <mark>
+        <%= order.status %>
+      </mark>
+    </blockquote>
+  <% end %>
+</div>

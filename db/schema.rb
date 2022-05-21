@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_20_165606) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_21_092538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,12 +20,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_165606) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "menu_category", default: "food", null: false
   end
 
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "menu_item_id", null: false
-    t.string "quantity"
+    t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["menu_item_id"], name: "index_order_items_on_menu_item_id"
@@ -33,9 +34,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_165606) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "draft", null: false
+    t.string "session_uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   add_foreign_key "order_items", "menu_items"

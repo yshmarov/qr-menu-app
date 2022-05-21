@@ -1,17 +1,19 @@
-<div id="<%= dom_id menu_item %>">
-  <p>
-    <strong>Name:</strong>
-    <%= menu_item.name %>
-  </p>
+<blockquote id="<%= dom_id menu_item %>">
+  <%= image_tag menu_item.image_url, style: "max-width: 300px;" if menu_item.image_url.present? %>
 
   <p>
-    <strong>Price:</strong>
-    <%= menu_item.price %>
+    <strong>#<%= menu_item.id %>:</strong>
+    <%= menu_item.name %>,
+    <%= menu_item.price/100.to_d %> PLN
   </p>
 
-  <p>
-    <strong>Image url:</strong>
-    <%= menu_item.image_url %>
-  </p>
-
-</div>
+  <%= button_to menu_item_add_to_cart_path(menu_item), method: :post do %>
+    Add to cart
+  <% end %>
+  <%#= @current_order&.menu_items&.include?(menu_item) %>
+  <%= OrderItem.find_by(order: @current_order, menu_item: menu_item)&.quantity %>
+  <% if controller_name == "menu_items" %>
+  <%= link_to "Edit this menu item", edit_menu_item_path(menu_item) %>
+  <%= button_to "Destroy this menu item", menu_item, method: :delete %>
+  <% end %>
+</blockquote>

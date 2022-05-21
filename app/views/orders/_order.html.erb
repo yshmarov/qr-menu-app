@@ -1,7 +1,26 @@
-<div id="<%= dom_id order %>">
+<article id="<%= dom_id order %>">
   <p>
-    <strong>Status:</strong>
-    <%= order.status %>
+    <strong>Order #</strong>
+    <%= order.id %>
   </p>
 
-</div>
+  <p>
+    <strong>Status:</strong>
+    <mark>
+      <%= order.status %>
+    </mark>
+  </p>
+
+  <%#= order.session_uid %>
+
+  <p>
+    <strong>Items ordered:</strong>
+    <%= order.order_items.map(&:quantity).sum %>
+    <%#= order.order_items.count %>
+  </p>
+
+<% if order.draft? %>
+  <%= button_to "Complete order", order_path(order.id), params: {order: { id: order.id, status: Order.statuses[:processing] }}, method: :put %>
+<% end %>
+
+</article>

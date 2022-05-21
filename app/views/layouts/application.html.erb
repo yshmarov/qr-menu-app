@@ -6,14 +6,46 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= link_to_unless_current "Menu", menu_items_path %>
-    <%= link_to_unless_current "Order items", order_items_path %>
-    <%= link_to_unless_current "Orders", orders_path %>
-    <%= yield %>
+    <header>
+      <h1>
+        StepByStep Menu
+      </h1>
+      <nav>
+        <%#= @user_id %>
+        <%#= session.id %>
+        <%#= link_to_unless_current "Menu", menu_items_path %>
+        <%= link_to "Queue", queue_path %>
+        <%= link_to "Menu", menu_path %>
+        <%= link_to "My Orders: #{@my_orders&.count}", orders_path %>
+        <%# ALL ORDERS %>
+        <%#= My order/Basket @current_order.order_items.count %>
+        <%#= request.session.id %>
+        <%#= ActiveRecord::SessionStore::Session.first.attributes %>
+
+        <% if @current_order %>
+          <%= link_to @current_order do %>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <%#= @current_order.id %>
+            <%= @current_order.order_items.map(&:quantity).sum %>
+          <% end %>
+        <% end %>
+        <%#= @current_order.present? %>
+      </nav>
+    </header>
+    <main>
+      <p style="color: green"><%= notice %></p>
+      <%= yield %>
+    </main>
+    <footer>
+      Made in
+      <%= Time.zone.now.year %>
+      by Yaro, Marek, Szymon
+    </footer>
   </body>
 </html>

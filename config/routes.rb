@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :order_items
-  resources :menu_items
-  resources :orders
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  root 'orders#index'
+  get 'menu', to: 'static_pages#menu'
+  get 'queue', to: 'static_pages#queue'
+  resources :orders do
+    resources :order_items
+  end
+  resources :menu_items do
+    post :add_to_cart
+  end
+  root to: redirect('/menu')
 end

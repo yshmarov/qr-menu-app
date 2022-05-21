@@ -1,17 +1,18 @@
-<div id="<%= dom_id order_item %>">
-  <p>
-    <strong>Order:</strong>
-    <%= order_item.order_id %>
-  </p>
+<blockquote id="<%= dom_id order_item %>">
+  <%= image_tag order_item.menu_item.image_url, style: "max-width: 100px;" if order_item.menu_item.image_url.present? %>
 
   <p>
     <strong>Menu item:</strong>
-    <%= order_item.menu_item_id %>
+    <%= order_item.menu_item.name %>
   </p>
 
   <p>
-    <strong>Quantity:</strong>
-    <%= order_item.quantity %>
+    <strong>Price:</strong>
+    <%= order_item.quantity  %>
+    X
+    <%= order_item.menu_item.price/100  %>
+    PLN =
+    <%= order_item.quantity * order_item.menu_item.price/100  %>
   </p>
 
-</div>
+</blockquote>
