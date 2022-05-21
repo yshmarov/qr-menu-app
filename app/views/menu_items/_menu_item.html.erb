@@ -8,16 +8,19 @@
     <%= menu_item.price/100.to_d %> PLN
   </p>
 
-  <%= button_to add_to_cart_path(menu_item), method: :post do %>
-    <i class="fa-solid fa-cart-arrow-down"></i>
-    Add to cart
-  <% end %>
-  <%#= @current_order&.menu_items&.include?(menu_item) %>
-  <%# Items in cart: %>
-  <%= menu_item.items_in_cart(@current_order) %>
+  <p>
+    Category:
+    <%= menu_item.menu_category %>
+  </p>
 
-  <% if controller_name == "menu_items" %>
-    <%= link_to "Edit this menu item", edit_menu_item_path(menu_item) %>
-    <%= button_to "Destroy this menu item", menu_item, method: :delete %>
+  <%= link_to edit_menu_item_path(menu_item) do %>
+    <i class="fa-solid fa-pencil"></i>
+    Edit
+  <% end %>
+  <% if menu_item.order_items.none? %>
+    <%= button_to menu_item, method: :delete do %>
+      <i class="fa-solid fa-trash"></i>
+      Destroy
+    <% end %>
   <% end %>
 </blockquote>

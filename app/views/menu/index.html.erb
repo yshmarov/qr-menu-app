@@ -16,6 +16,6 @@
 
 <div id="menu">
   <% @menu_items.each do |menu_item| %>
-    <%= render menu_item %>
+    <%= render partial: "menu/menu_item", locals:{ menu_item: menu_item } %>
   <% end %>
 </div>

@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :order_items, only: :destroy
   end
 
-  resources :menu_items
+  resources :menu_items, except: :show
 end

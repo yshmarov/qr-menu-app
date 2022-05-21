@@ -2,8 +2,8 @@ class MenuItem < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :menu_category, presence: true
-  # validates :image_url, presence: true
-  has_many :order_items
+  validates :image_url, presence: true
+  has_many :order_items, dependent: :restrict_with_error
   has_many :orders, through: :order_items
 
   enum menu_category: { food: 'food', drinks: 'drinks' }
