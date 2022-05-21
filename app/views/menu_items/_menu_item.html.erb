@@ -8,10 +8,12 @@
     <%= menu_item.price/100.to_d %> PLN
   </p>
 
-  <%= button_to menu_item_add_to_cart_path(menu_item), method: :post do %>
+  <%= button_to add_to_cart_path(menu_item), method: :post do %>
+    <i class="fa-solid fa-cart-arrow-down"></i>
     Add to cart
   <% end %>
   <%#= @current_order&.menu_items&.include?(menu_item) %>
+  <%# Items in cart: %>
   <%= OrderItem.find_by(order: @current_order, menu_item: menu_item)&.quantity %>
   <% if controller_name == "menu_items" %>
   <%= link_to "Edit this menu item", edit_menu_item_path(menu_item) %>
