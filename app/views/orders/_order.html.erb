@@ -1,11 +1,10 @@
 <article id="<%= dom_id order %>">
   <p>
     <strong>Order #</strong>
-    <%= order.id %>
+    <%= order.id %>, (<%= order.created_at.strftime("%d %h %Y, %H:%M") %>)
   </p>
 
   <p>
-    <strong>Status:</strong>
     <mark>
       <%= order.status %>
     </mark>
@@ -27,4 +26,5 @@
   <% end %>
 <% end %>
 
+  <%= link_to "Show this order", order %>
 </article>

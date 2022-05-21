@@ -3,6 +3,6 @@
 <%= render @order.order_items if @order&.order_items&.any? %>
 
 <div>
+  <%# update status %>
   <%= link_to "Edit this order", edit_order_path(@order) %>
-  <%= button_to "Destroy this order", @order, method: :delete %>
 </div>
