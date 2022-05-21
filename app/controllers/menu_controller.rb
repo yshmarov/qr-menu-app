@@ -7,8 +7,15 @@ class MenuController < ApplicationController
                   end
   end
 
-  # def create_from_table
-  # end
+  # the default url to open from QR
+  # assign_table_from_qr
+  def qr
+    session[:table_delivery] = parmas[:table_delivery]
+    # if request.post?
+
+    # remove table_delivery from session when the order with it is "submitted" in orders#update
+    # session[:table_delivery] = nil
+  end
 
   def add_to_cart
     # find or create order
@@ -31,15 +38,18 @@ class MenuController < ApplicationController
 
     @current_order = @order
 
+    notice_text = "#{@menu_item.name} added to cart"
+
     respond_to do |format|
       format.html do
-        redirect_to menu_url, notice: "#{@menu_item.name} added to cart"
+        redirect_to menu_url, notice: notice_text
       end
       format.turbo_stream do
+        flash.now[:notice] = notice_text
         render turbo_stream: [
           turbo_stream.replace(@menu_item, partial: 'menu/menu_item', locals: { menu_item: @menu_item }),
-          turbo_stream.replace('header_navigation', partial: 'shared/header')
-          # flash
+          turbo_stream.replace('header_navigation', partial: 'shared/header'),
+          turbo_stream.replace('flash', partial: 'shared/flash')
         ]
       end
     end
