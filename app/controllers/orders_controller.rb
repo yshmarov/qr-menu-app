@@ -10,6 +10,11 @@ class OrdersController < ApplicationController
     # @orders = Order.all
   end
 
+  def all
+    @orders = Order.all
+    render 'orders/index'
+  end
+
   def show; end
 
   def edit; end
