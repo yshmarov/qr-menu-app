@@ -2,6 +2,18 @@
   <i class="fa-solid fa-list"></i>
   Menu
 </h1>
+
+<header>
+  <nav>
+    <% MenuItem.all.pluck(:menu_category).uniq.sort.each do |menu_category| %>
+      <%= active_link_to menu_path(menu_category: menu_category) do %>
+        <%= menu_category.capitalize %>
+        <% end %>
+    <% end %>
+    <%= link_to "Full menu", request.path if request.query_parameters.any? %>
+  </nav>
+</header>
+
 <div id="menu">
   <% @menu_items.each do |menu_item| %>
     <%= render menu_item %>
