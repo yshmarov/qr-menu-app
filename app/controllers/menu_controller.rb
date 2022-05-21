@@ -35,9 +35,9 @@ class MenuController < ApplicationController
       end
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace(@menu_item, partial: 'menu/menu_item', locals: { menu_item: @menu_item })
+          turbo_stream.replace(@menu_item, partial: 'menu/menu_item', locals: { menu_item: @menu_item }),
+          turbo_stream.replace('header_navigation', partial: 'shared/header')
           # flash
-          # counter
         ]
       end
     end
