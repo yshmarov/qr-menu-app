@@ -5,8 +5,3 @@
     <%= render partial: "order_items/order_item", locals: {order_item: order_item} %>
   <% end %>
 <% end %>
-
-<div>
-  <%# update status %>
-  <%= link_to "Edit order status", [:edit, :admin, @order] %>
-</div>

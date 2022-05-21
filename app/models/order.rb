@@ -11,6 +11,10 @@ class Order < ApplicationRecord
   # validate max 1 draft per user
   scope :queued, -> { where(status: %w[submitted processing delivery]) }
 
+  def next_status
+    Order.statuses.keys.split(status).last.first
+  end
+
   # protected
   after_create_commit do
     broadcast_queue

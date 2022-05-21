@@ -9,8 +9,6 @@ module Admin
 
     def show; end
 
-    def edit; end
-
     def update
       # @order.update(order_params)
       # redirect_to root_url
