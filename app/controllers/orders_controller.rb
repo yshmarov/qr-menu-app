@@ -1,29 +1,18 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show edit update]
-
   # current_user orders
+  before_action :set_order, only: %i[show update]
+
   def index
-    @orders = @my_orders
+    @orders = @my_orders.order(created_at: :desc)
   end
 
-  def all
-    @orders = Order.all
-    render 'orders/index'
-  end
-
-  def show
-    # show consumer only his own order
-    # @my_orders = Order.find(params[:id])
-  end
-
-  def edit; end
+  def show; end
 
   def update
-    # @order.update(order_params)
-    # redirect_to root_url
+    # change status (pay)
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: 'Order was successfully updated.' }
+        format.html { redirect_to order_url(@order), notice: 'Ordered!.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -33,7 +22,7 @@ class OrdersController < ApplicationController
   private
 
   def set_order
-    @order = Order.find(params[:id])
+    @order = @my_orders.find(params[:id])
   end
 
   def order_params

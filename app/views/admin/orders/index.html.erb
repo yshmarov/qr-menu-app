@@ -1,1 +1,11 @@
-yo
+<h1>
+  <i class="fa-solid fa-clock-rotate-left"></i>
+  Queued orders
+  <%= @orders.count %>
+</h1>
+
+<div id="orders">
+  <% @orders.each do |order| %>
+    <%= render partial: "admin/orders/order", locals: {order: order} %>
+  <% end %>
+</div>

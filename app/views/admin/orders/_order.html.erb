@@ -16,16 +16,8 @@
     <%#= order.order_items.count %>
   </p>
 
-  <% if order.draft? %>
-    <%= button_to order_path(order.id), params: {order: { id: order.id, status: Order.statuses[:submitted] }}, method: :put do %>
-      <i class="fa-solid fa-credit-card"></i>
-      Complete order:
-      <%= order.total_price/100.to_d %> PLN
-    <% end %>
-  <% end %>
-
   <% if action_name != "show" %>
-    <%= link_to order do %>
+    <%= link_to [:admin, order] do %>
       Show this order
     <% end %>
   <% end %>

@@ -1,10 +1,11 @@
 <h1>
   <i class="fa-solid fa-clock-rotate-left"></i>
-  Orders
+  My Orders
+  <%= @orders.count %>
 </h1>
 
 <div id="orders">
   <% @orders.each do |order| %>
-    <%= render order %>
+    <%= render partial: "orders/order", locals: {order: order} %>
   <% end %>
 </div>

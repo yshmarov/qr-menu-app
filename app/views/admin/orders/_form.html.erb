@@ -1,4 +1,4 @@
-<%= form_with(model: order) do |form| %>
+<%= form_with(model: [:admin, order]) do |form| %>
   <% if order.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
