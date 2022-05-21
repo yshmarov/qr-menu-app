@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # current_user orders
   def index
-    @orders = Order.where(session_uid: @user_id)
+    @orders = @my_orders
   end
 
   def all
@@ -11,7 +11,10 @@ class OrdersController < ApplicationController
     render 'orders/index'
   end
 
-  def show; end
+  def show
+    # show consumer only his own order
+    # @my_orders = Order.find(params[:id])
+  end
 
   def edit; end
 
