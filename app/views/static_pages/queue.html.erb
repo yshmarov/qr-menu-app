@@ -1,14 +1,13 @@
 <h1>
   <i class="fa-solid fa-stopwatch"></i>
-  Orders in progress
+  Orders in progress:
+  <span id="queue_count">
+  <%= @orders.count %>
+  </span>
 </h1>
+<%= turbo_stream_from :orders_list %>
 <div id="queue">
   <% @orders.each do |order| %>
-    <blockquote>
-      Order #<%= order.id %>
-      <mark>
-        <%= order.status %>
-      </mark>
-    </blockquote>
+    <%= render partial: "static_pages/queue_item", locals: {order: order} %>
   <% end %>
 </div>

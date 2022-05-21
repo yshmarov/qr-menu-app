@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
   def menu
-    @menu_items = MenuItem.order(name: :asc)
+    @menu_items = MenuItem.order(menu_category: :desc, name: :asc)
   end
 
   def queue
-    @orders = Order.where(status: %w[processing delivery])
+    @orders = Order.queue
   end
 end
