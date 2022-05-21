@@ -15,4 +15,6 @@
     <%= order_item.quantity * order_item.menu_item.price/100  %>
   </p>
 
+  <%= order_item.id %>
+  <%= button_to "Destroy this order item", [order_item.order, order_item], method: :delete %>
 </blockquote>
