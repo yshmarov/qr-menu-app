@@ -1,4 +1,4 @@
-class MenuItemsController < ApplicationController
+class MenuItemsController < SecuredController
   before_action :set_menu_item, only: %i[edit update destroy]
 
   def index

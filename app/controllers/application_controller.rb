@@ -7,6 +7,5 @@ class ApplicationController < ActionController::Base
     @user_id = session.id.to_s
     @my_orders = Order.where(session_uid: @user_id)
     @current_order = @my_orders.draft.first
-    # @current_order = @my_orders.not_done.first
   end
 end

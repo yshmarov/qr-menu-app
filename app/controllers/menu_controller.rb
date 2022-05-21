@@ -7,6 +7,9 @@ class MenuController < ApplicationController
                   end
   end
 
+  # def create_from_table
+  # end
+
   def add_to_cart
     # find or create order
     @order = if @current_order.present?

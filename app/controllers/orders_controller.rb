@@ -3,11 +3,7 @@ class OrdersController < ApplicationController
 
   # current_user orders
   def index
-    # @orders = Order.where(session_uid: ActiveRecord::SessionStore::Session.ids)
-    # @orders = Order.where(session_uid: request.session.id.to_s)
     @orders = Order.where(session_uid: @user_id)
-    # @orders = Order.where(session_uid: request.session_options[:id])
-    # @orders = Order.all
   end
 
   def all
@@ -18,22 +14,6 @@ class OrdersController < ApplicationController
   def show; end
 
   def edit; end
-
-  # create_from_table
-  # params[:table_id]
-  # def create
-  #   # @order = Order.find_or_create_by(session_uid: request.session.id.to_s)
-  #   @order = Order.new(order_params)
-  #   @order.status = Order.statuses[:draft]
-  #   @order.session_uid = session.id
-  #   respond_to do |format|
-  #     if @order.save
-  #       format.html { redirect_to order_url(@order), notice: 'Order was successfully created.' }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   def update
     # @order.update(order_params)

@@ -18,13 +18,13 @@
         StepByStep Menu
       </h1>
       <nav>
-        <%= active_link_to queue_path do %>
-          <i class="fa-solid fa-stopwatch"></i>
-          Queue
-        <% end %>
         <%= active_link_to menu_path do %>
           <i class="fa-solid fa-list"></i>
           Menu
+        <% end %>
+        <%= active_link_to queue_path do %>
+          <i class="fa-solid fa-stopwatch"></i>
+          Queue
         <% end %>
         <%= active_link_to orders_path do %>
           <i class="fa-solid fa-clock-rotate-left"></i>
@@ -48,6 +48,14 @@
       Made in
       <%= Time.zone.now.year %>
       by Yaro, Marek, Szymon
+      <nav>
+        <%= link_to menu_items_path do %>
+          Edit menu
+        <% end %>
+        <%= link_to orders_path do %>
+          Manage orders
+        <% end %>
+      </nav>
     </footer>
   </body>
 </html>
