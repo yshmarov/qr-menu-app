@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show edit update destroy]
+  before_action :set_order, only: %i[show edit update]
 
   # current_user orders
   def index
@@ -44,14 +44,6 @@ class OrdersController < ApplicationController
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def destroy
-    @order.destroy
-
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
     end
   end
 
