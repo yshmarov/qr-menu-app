@@ -10,11 +10,12 @@
     <strong>Price:</strong>
     <%= order_item.quantity  %>
     X
-    <%= order_item.menu_item.price/100  %>
+    <%= order_item.menu_item.price/100.to_d %>
     PLN =
-    <%= order_item.quantity * order_item.menu_item.price/100  %>
+    <%= order_item.total_price/100.to_d %> PLN
   </p>
-
-  <%= order_item.id %>
-  <%= button_to "Destroy this order item", [order_item.order, order_item], method: :delete %>
+  <%= button_to [order_item.order, order_item], method: :delete do %>
+    <i class="fa-solid fa-trash"></i>
+    Remove from order
+  <% end %>
 </blockquote>

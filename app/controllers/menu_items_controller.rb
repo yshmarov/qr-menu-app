@@ -25,6 +25,8 @@ class MenuItemsController < ApplicationController
     @menu_item = MenuItem.find(params[:menu_item_id])
     @order_item = @order.order_items.find_or_create_by(menu_item: @menu_item)
     @order_item.increment!(:quantity)
+    @order_item.calculate_total_price
+    @order.calculate_total_price
 
     redirect_to menu_url, notice: "#{@menu_item.name} added to cart"
     # redirect_to menu_items_url, notice: request.params[:menu_item_id]

@@ -10,4 +10,8 @@ class Order < ApplicationRecord
   validates :status, presence: true
 
   # validate max 1 draft per user
+
+  def calculate_total_price
+    update_column :total_price, order_items.map(&:total_price).sum
+  end
 end
