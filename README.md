@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+### Usage
+
+https://www.ewlit.com/qr?table_delivery=1
