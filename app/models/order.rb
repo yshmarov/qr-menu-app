@@ -11,6 +11,7 @@ class Order < ApplicationRecord
   # validate max 1 draft per user
   scope :queued, -> { where(status: %w[submitted processing delivery]) }
 
+  # protected
   after_create_commit do
     broadcast_queue
   end
@@ -19,7 +20,6 @@ class Order < ApplicationRecord
     broadcast_queue
   end
 
-  # protected
   def broadcast_queue
     broadcast_append_to :orders_list, target: 'queue', partial: 'queue/queue_item', locals: { order: self }
     broadcast_update_to :orders_list, target: 'queue_count', html: Order.queued.count

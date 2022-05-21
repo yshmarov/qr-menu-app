@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :menu_items, except: :show
+
+  namespace :admin do
+    resources :orders
+  end
 end
