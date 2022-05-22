@@ -11,14 +11,14 @@
   </p>
 
   <p>
-    <strong>Items ordered:</strong>
-    <%= order.order_items.map(&:quantity).sum %>
-    <%#= order.order_items.count %>
+    <strong>Delivery:</strong>
+    <kbd><%= order.delivery_details %></kbd>
   </p>
 
   <% if action_name != "show" %>
     <%= link_to [:admin, order] do %>
-      Show this order
+      <strong>Items ordered:</strong>
+      <%= order.order_items.map(&:quantity).sum %>
     <% end %>
   <% end %>
 
