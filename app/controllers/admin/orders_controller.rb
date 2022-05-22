@@ -14,7 +14,10 @@ module Admin
       # redirect_to root_url
       respond_to do |format|
         if @order.update(order_params)
-          format.html { redirect_to [:admin, @order], notice: 'Order was successfully updated.' }
+          format.html do
+            redirect_to [:admin, @order],
+                        notice: "Status updated: #{@order.status_previous_change}."
+          end
         else
           format.html { render :edit, status: :unprocessable_entity }
         end

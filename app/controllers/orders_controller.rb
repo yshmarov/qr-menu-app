@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     # change status (pay)
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: 'Ordered!.' }
+        format.html { redirect_to order_url(@order), notice: 'Ordered!' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
