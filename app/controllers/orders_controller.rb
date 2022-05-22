@@ -12,7 +12,12 @@ class OrdersController < ApplicationController
     # change status (pay)
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: 'Ordered!' }
+        notice_text = if order_params[:status].present?
+                        'Ordered!'
+                      else
+                        "Your rating: #{order_params[:rating]}"
+                      end
+        format.html { redirect_to order_url(@order), notice: notice_text }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -26,6 +31,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(:status, :rating)
   end
 end

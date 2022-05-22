@@ -27,4 +27,17 @@
     <%= order_pay_label(order) %>
     <%= order.total_price/100.to_d %> PLN
   <% end %>
+
+  <% if order.done? %>
+    <hr>
+    Please rate your order
+    <div style="display: flex; justify-content: space-between;">
+      <%= button_to order_path(order.id), params: {order: { id: order.id, rating: 1 }}, method: :put, disabled: order.rating.equal?(1) do %>
+        <i class="fa-solid fa-face-dizzy"></i>
+      <% end %>
+      <%= button_to order_path(order.id), params: {order: { id: order.id, rating: 10 }}, method: :put, disabled: order.rating.equal?(10) do %>
+        <i class="fa-solid fa-face-grin-stars"></i>
+      <% end %>
+    </div>
+  <% end %>
 </article>

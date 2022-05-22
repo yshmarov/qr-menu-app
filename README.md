@@ -29,8 +29,6 @@ https://www.ewlit.com/qr?table_delivery=1
 
 ### TODO:
 
-0. Order satisfaction stats
-
 1. Kitchen should see live order. 
 
 Same as orders in progress but with order_items and change_status button?
