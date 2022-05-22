@@ -1,5 +1,6 @@
   <blockquote id="<%= dom_id(order) %>">
-    Order #<%= order.id %>
+    Order #<%= order.id %>,
+    <kbd><%= order.delivery_details %></kbd>
     <mark style="background-color: <%= Order::COLOR_STATUSES[order.status.to_sym] %>">
       <%= order.status %>
     </mark>

@@ -10,10 +10,7 @@ class MenuController < ApplicationController
   # the default url to open from QR
   def qr
     session[:table_delivery] = params[:table_delivery]
-    redirect_to menu_path    
-    # if request.post?
-    # remove table_delivery from session when the order with it is "submitted" in orders#update
-    # session[:table_delivery] = nil
+    redirect_to menu_path
   end
 
   def add_to_cart
@@ -31,6 +28,11 @@ class MenuController < ApplicationController
     @order_item = @order.order_items.find_or_create_by(menu_item: @menu_item)
     # add +1 item to cart
     @order_item.increment!(:quantity)
+    # set delivery delivery
+    delivery_method = session[:table_delivery].presence || 'To go'
+    @order.update(delivery_details: delivery_method)
+    # clear table
+    session[:table_delivery] = nil
     # balance calculation
     @order_item.calculate_total_price
     @order.calculate_total_price
