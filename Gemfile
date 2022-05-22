@@ -73,3 +73,5 @@ end
 
 gem 'activerecord-session_store'
 gem 'faker', '~> 2.21'
+
+gem 'chartkick'

@@ -1,0 +1,9 @@
+<h1>
+  Stats
+</h1>
+<section>
+  <h4>
+    Most popular menu items
+  </h4>
+  <%= pie_chart OrderItem.joins(:menu_item).group("menu_items.name").count %>
+</section>

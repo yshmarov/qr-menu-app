@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, except: %i[destroy new create edit]
+    resources :stats, only: :index
   end
 end
