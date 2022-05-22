@@ -27,7 +27,9 @@ class Order < ApplicationRecord
 
   def broadcast_queue
     # TODO: update order.done -> broadcast remove from queue
-    broadcast_append_to :orders_list, target: 'queue', partial: 'queue/queue_item', locals: { order: self }
+    unless draft?
+      broadcast_append_to :orders_list, target: 'queue', partial: 'queue/queue_item', locals: { order: self }
+    end
     broadcast_update_to :orders_list, target: 'queue_count', html: Order.queued.count
   end
 
