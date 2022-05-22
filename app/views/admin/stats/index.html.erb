@@ -6,4 +6,8 @@
     Most popular menu items
   </h4>
   <%= pie_chart OrderItem.joins(:menu_item).group("menu_items.name").count %>
+  <h4>
+    Satisfaction
+  </h4>
+  <%= column_chart Order.group(:rating).count %>
 </section>
