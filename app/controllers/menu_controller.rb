@@ -8,6 +8,7 @@ class MenuController < ApplicationController
   end
 
   # the default url to open from QR
+  # /qr?table_delivery=3
   def qr
     session[:table_delivery] = params[:table_delivery]
     redirect_to menu_path
