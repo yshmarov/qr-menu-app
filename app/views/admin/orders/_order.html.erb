@@ -1,7 +1,10 @@
 <article id="<%= dom_id order %>">
+  <strong>
+    #<%= order.id %>
+  </strong>
+
   <p>
-    <strong>Order #</strong>
-    <%= order.id %>, (<%= order.created_at.strftime("%d %h %Y, %H:%M") %>)
+    <%= order.created_at.strftime("%d %h %Y, %H:%M") %>
   </p>
 
   <p id="order_status">
@@ -9,15 +12,17 @@
   </p>
 
   <p>
-    <strong>Delivery:</strong>
+    <strong><%= t("activerecord.attributes.order.delivery_details") %></strong>
     <kbd><%= order.delivery_details %></kbd>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to [:admin, order] do %>
-      <strong>Items ordered:</strong>
-      <%= order.order_items.map(&:quantity).sum %>
-    <% end %>
+    <p>
+      <%= link_to [:admin, order] do %>
+        <strong>Items ordered:</strong>
+        <%= order.order_items.map(&:quantity).sum %>
+      <% end %>
+    </p>
   <% end %>
 
   <% if order.next_status.present? %>

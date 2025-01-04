@@ -8,6 +8,7 @@
   <p>
     <%= order.created_at.strftime("%d %h %Y, %H:%M") %>
   </p>
+
   <p id="order_status">
     <%= render partial: "orders/status", locals: { order: order } %>
   </p>
