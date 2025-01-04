@@ -2,15 +2,25 @@
   <mark>admin</mark>
   <%= t(".title") %>
 </h1>
+
 <section>
   <h3>
     Most popular menu items
   </h3>
   <%= pie_chart @most_popular_menu_items %>
 </section>
+
 <section>
   <h3>
     Satisfaction
   </h3>
   <%= column_chart @satisfaction %>
+</section>
+
+<section>
+  <h3>
+    Income per day,
+    <%= t("config.currency") %>
+  </h3>
+  <%= line_chart @income_per_day %>
 </section>
