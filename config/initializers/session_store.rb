@@ -1,5 +1,5 @@
 Rails.application.config.session_store :active_record_store,
-                                       key: '_api_management_app_session'
+                                       key: "_api_management_app_session"
 # Rails.application.config.session_store :cache_store,
 #   expire_after: 90.minutes,
 #   key: "_api_management_app_session"

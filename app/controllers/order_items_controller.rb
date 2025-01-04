@@ -5,6 +5,6 @@ class OrderItemsController < ApplicationController
 
     @order_item.destroy
     @order_item.order.calculate_total_price
-    redirect_to @order_item.order, notice: t('.destroy.notice')
+    redirect_to @order_item.order, notice: t(".destroy.notice")
   end
 end
