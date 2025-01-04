@@ -25,3 +25,5 @@ en:
   menu:
     index:
       all: All
+    menu_item:
+      add_to_cart: Add to cart
