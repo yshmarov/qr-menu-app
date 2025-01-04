@@ -19,7 +19,7 @@
 
   <div>
     <%= form.label :menu_category, style: "display: block" %>
-    <%= form.select :menu_category, MenuItem.menu_categories %>
+    <%= form.select :menu_category, MenuItem.menu_categories.invert %>
   </div>
 
   <div>
