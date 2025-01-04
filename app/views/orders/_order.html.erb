@@ -1,32 +1,36 @@
 <%= turbo_stream_from [order, :status] %>
 
 <article id="<%= dom_id order %>">
-  <p>
-    <strong>Order #</strong>
-    <%= order.id %>, (<%= order.created_at.strftime("%d %h %Y, %H:%M") %>)
-  </p>
+  <strong>
+    #<%= order.id %>
+  </strong>
 
+  <p>
+    <%= order.created_at.strftime("%d %h %Y, %H:%M") %>
+  </p>
   <p id="order_status">
     <%= render partial: "orders/status", locals: { order: order } %>
   </p>
 
   <p>
-    <strong>Delivery:</strong>
+    <strong><%= t("activerecord.attributes.order.delivery_details") %></strong>
     <kbd><%= order.delivery_details %></kbd>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to order do %>
-      <strong>Items ordered:</strong>
-      <%= order.order_items.map(&:quantity).sum %>
-    <% end %>
+    <p>
+      <%= link_to order do %>
+        <mark><%= order.order_items.map(&:quantity).sum %></mark>
+        <strong><%= t(".items") %></strong>
+      <% end %>
+    </p>
   <% end %>
 
   <%= button_to order_path(order), params: {order: { id: order.id, status: Order.statuses[:submitted] }}, method: :put, disabled: !order.draft? do %>
     <i class="fa-solid fa-credit-card"></i>
     <%= order_pay_label(order) %>
     <%= order.total_price / 100.to_d %>
-    PLN
+    <%= t("config.currency") %>
   <% end %>
 
   <% if order.done? %>

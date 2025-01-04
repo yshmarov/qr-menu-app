@@ -20,6 +20,8 @@ en:
         price: Price
         menu_category: Category
         image_url: Image URL
+      order:
+        delivery_details: Delivery details
   menu:
     index:
       title: Menu
@@ -29,6 +31,8 @@ en:
   orders:
     index:
       title: My Orders
+    order:
+      items: items
   queue:
     index:
       title: Orders in progress
