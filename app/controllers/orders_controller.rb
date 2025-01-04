@@ -10,17 +10,13 @@ class OrdersController < ApplicationController
 
   def update
     # change status (pay)
-    respond_to do |format|
-      if @order.update(order_params)
-        notice_text = if order_params[:status].present?
+    if @order.update(order_params)
+      notice_text = if order_params[:status].present?
                         'Ordered!'
                       else
-                        "Your rating: #{order_params[:rating]}"
-                      end
-        format.html { redirect_to order_url(@order), notice: notice_text }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+                      "Your rating: #{order_params[:rating]}"
+                    end
+      redirect_to order_url(@order), notice: notice_text
     end
   end
 
