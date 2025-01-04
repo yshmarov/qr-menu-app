@@ -9,6 +9,8 @@ class OrdersController < ApplicationController
   def show; end
 
   def update
+    # TODO: should be impossible to submit order with 0 items
+    # TODO: implement payment
     # change status (pay)
     return unless @order.update(order_params)
 
