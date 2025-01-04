@@ -1,9 +1,9 @@
 class Order < ApplicationRecord
-  enum :status, { draft: 'draft',
-                  submitted: 'submitted',
-                  processing: 'processing',
-                  delivery: 'delivery',
-                  done: 'done' }
+  enum :status, { draft: "draft",
+                  submitted: "submitted",
+                  processing: "processing",
+                  delivery: "delivery",
+                  done: "done" }
   has_many :order_items, dependent: :destroy
   has_many :menu_items, through: :order_items
   validates :status, presence: true
@@ -15,9 +15,9 @@ class Order < ApplicationRecord
     Order.statuses.keys.split(status).last.first
   end
 
-  COLOR_STATUSES = { submitted: 'red',
-                     processing: 'yellow',
-                     delivery: 'green' }.freeze
+  COLOR_STATUSES = { submitted: "red",
+                     processing: "yellow",
+                     delivery: "green" }.freeze
 
   # protected
   after_update_commit do
@@ -28,14 +28,14 @@ class Order < ApplicationRecord
   def broadcast_queue
     # TODO: update order.done -> broadcast remove from queue
     unless draft?
-      broadcast_append_to :orders_list, target: 'queue', partial: 'queue/queue_item', locals: { order: self }
+      broadcast_append_to :orders_list, target: "queue", partial: "queue/queue_item", locals: { order: self }
     end
-    broadcast_update_to :orders_list, target: 'queue_count', html: Order.queued.count
+    broadcast_update_to :orders_list, target: "queue_count", html: Order.queued.count
   end
 
   def broadcast_order_status
     # so that the customer does not need to open queue. He can see it on the order page
-    broadcast_update_to [self, :status], target: 'order_status', partial: 'orders/status', locals: { order: self }
+    broadcast_update_to [ self, :status ], target: "order_status", partial: "orders/status", locals: { order: self }
   end
 
   def calculate_total_price

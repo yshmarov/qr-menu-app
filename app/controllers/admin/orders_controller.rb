@@ -13,7 +13,7 @@ module Admin
       # @order.update(order_params)
       # redirect_to root_url
       if @order.update(order_params)
-        redirect_to [:admin, @order],
+        redirect_to [ :admin, @order ],
                     notice: "Status updated: #{@order.status_previous_change}."
       else
         render :edit, status: :unprocessable_entity

@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
-  test 'index' do
+  test "index" do
     get orders_url
     assert_response :success
   end

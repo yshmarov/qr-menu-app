@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
 class StatsControllerTest < ActionDispatch::IntegrationTest
-  test 'index' do
+  test "index" do
     get admin_stats_url
     assert_response :unauthorized
 
