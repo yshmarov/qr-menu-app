@@ -36,3 +36,6 @@ en:
   queue:
     index:
       title: Orders in progress
+  order_items:
+    destroy:
+      notice: Item removed from order
