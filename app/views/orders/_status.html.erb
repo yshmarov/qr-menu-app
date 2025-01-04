@@ -1,3 +1,5 @@
-<mark style="background-color: <%= Order::COLOR_STATUSES[order.status.to_sym] %>">
+<mark
+  style="background-color: <%= Order::COLOR_STATUSES[order.status.to_sym] %>"
+>
   <%= order.status %>
 </mark>

@@ -1,9 +1,9 @@
 class Order < ApplicationRecord
-  enum status: { draft: 'draft',
-                 submitted: 'submitted',
-                 processing: 'processing',
-                 delivery: 'delivery',
-                 done: 'done' }
+  enum :status, { draft: 'draft',
+                  submitted: 'submitted',
+                  processing: 'processing',
+                  delivery: 'delivery',
+                  done: 'done' }
   has_many :order_items, dependent: :destroy
   has_many :menu_items, through: :order_items
   validates :status, presence: true
@@ -39,6 +39,6 @@ class Order < ApplicationRecord
   end
 
   def calculate_total_price
-    update_column :total_price, order_items.map(&:total_price).sum
+    update(total_price: order_items.map(&:total_price).sum)
   end
 end

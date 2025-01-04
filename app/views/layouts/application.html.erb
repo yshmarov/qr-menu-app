@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= t('config.app_name') %></title>
+    <title><%= t("config.app_name") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,21 +15,21 @@
     <header>
       <h1>
         <i class="fa-solid fa-utensils"></i>
-        <%= t('config.app_name') %>
+        <%= t("config.app_name") %>
       </h1>
       <p>
-        <%= t('config.description') %>
+        <%= t("config.description") %>
         <%# TODO: display table delivery %>
         <%#= session[:table_delivery] %>
       </p>
-      <%= render 'shared/nav' %>
+      <%= render "shared/nav" %>
     </header>
     <main>
-      <%= render 'shared/flash' %>
+      <%= render "shared/flash" %>
       <%= yield %>
     </main>
     <footer>
-      <%= render 'shared/footer' %>
+      <%= render "shared/footer" %>
     </footer>
   </body>
 </html>

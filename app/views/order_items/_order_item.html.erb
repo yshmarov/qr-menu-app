@@ -1,5 +1,7 @@
 <blockquote id="<%= dom_id order_item %>">
-  <%= image_tag order_item.menu_item.image_url, style: "max-width: 100px;" if order_item.menu_item.image_url.present? %>
+  <%= if order_item.menu_item.image_url.present?
+    image_tag order_item.menu_item.image_url, style: "max-width: 100px;"
+  end %>
 
   <p>
     <strong>Menu item:</strong>
@@ -8,11 +10,12 @@
 
   <p>
     <strong>Price:</strong>
-    <%= order_item.quantity  %>
+    <%= order_item.quantity %>
     X
-    <%= order_item.menu_item.price/100.to_d %>
+    <%= order_item.menu_item.price / 100.to_d %>
     PLN =
-    <%= order_item.total_price/100.to_d %> PLN
+    <%= order_item.total_price / 100.to_d %>
+    PLN
   </p>
   <%= button_to [order_item.order, order_item], method: :delete, disabled: !@order.draft? do %>
     <i class="fa-solid fa-trash"></i>

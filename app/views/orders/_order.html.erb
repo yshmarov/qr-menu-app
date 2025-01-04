@@ -25,7 +25,8 @@
   <%= button_to order_path(order), params: {order: { id: order.id, status: Order.statuses[:submitted] }}, method: :put, disabled: !order.draft? do %>
     <i class="fa-solid fa-credit-card"></i>
     <%= order_pay_label(order) %>
-    <%= order.total_price/100.to_d %> PLN
+    <%= order.total_price / 100.to_d %>
+    PLN
   <% end %>
 
   <% if order.done? %>

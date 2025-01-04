@@ -1,17 +1,17 @@
 <nav id="nav">
   <%= active_link_to menu_path do %>
     <i class="fa-solid fa-list"></i>
-    <%= t('nav.menu') %>
+    <%= t("nav.menu") %>
   <% end %>
 
   <%= active_link_to queue_path do %>
     <i class="fa-solid fa-stopwatch"></i>
-    <%= t('nav.queue') %>
+    <%= t("nav.queue") %>
   <% end %>
 
   <%= active_link_to orders_path do %>
     <i class="fa-solid fa-clock-rotate-left"></i>
-    <%= t('nav.my_orders') %>
+    <%= t("nav.my_orders") %>
     <mark>
       <%= @my_orders&.count %>
     </mark>

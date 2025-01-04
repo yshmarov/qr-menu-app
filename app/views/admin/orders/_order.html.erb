@@ -22,7 +22,9 @@
 
   <% if order.next_status.present? %>
     <%= button_to admin_order_path(order.id), params: {order: { id: order.id, status: order.next_status }}, method: :put do %>
-      <%= order.status %> -> <%= order.next_status %>
+      <%= order.status %>
+      ->
+      <%= order.next_status %>
     <% end %>
   <% end %>
 </article>

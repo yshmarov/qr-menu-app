@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "heybourn.headwind",
+    "eamodio.gitlens",
+    "Shopify.ruby-lsp",
+    "elia.erb-formatter"
+  ]
+}

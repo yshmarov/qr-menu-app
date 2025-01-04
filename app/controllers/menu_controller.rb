@@ -16,14 +16,10 @@ class MenuController < ApplicationController
 
   def add_to_cart
     # find or create order
-    @order = if @current_order.present?
-               @current_order
-             else
-               Order.create(
-                 status: Order.statuses[:draft],
-                 session_uid: @user_id
-               )
-             end
+    @order = @current_order.presence || Order.create(
+      status: Order.statuses[:draft],
+      session_uid: @user_id
+    )
     # add to cart
     @menu_item = MenuItem.find(params[:menu_item_id])
     @order_item = @order.order_items.find_or_create_by(menu_item: @menu_item)

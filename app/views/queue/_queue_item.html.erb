@@ -1,5 +1,5 @@
-  <blockquote id="<%= dom_id(order) %>">
-    Order #<%= order.id %>,
-    <kbd><%= order.delivery_details %></kbd>
-    <%= render partial: "orders/status", locals: { order: order } %>
-  </blockquote>
+<blockquote id="<%= dom_id(order) %>">
+  Order #<%= order.id %>,
+  <kbd><%= order.delivery_details %></kbd>
+  <%= render partial: "orders/status", locals: { order: order } %>
+</blockquote>

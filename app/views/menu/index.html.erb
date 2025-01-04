@@ -8,7 +8,7 @@
     <% MenuItem.all.pluck(:menu_category).uniq.sort.each do |menu_category| %>
       <%= active_link_to menu_path(menu_category: menu_category) do %>
         <%= menu_category.capitalize %>
-        <% end %>
+      <% end %>
     <% end %>
     <%= link_to "All", request.path if request.query_parameters.any? %>
   </nav>
@@ -16,6 +16,6 @@
 
 <div id="menu" class="grid-cols-auto-fit">
   <% @menu_items.each do |menu_item| %>
-    <%= render partial: "menu/menu_item", locals:{ menu_item: menu_item } %>
+    <%= render partial: "menu/menu_item", locals: { menu_item: menu_item } %>
   <% end %>
 </div>
