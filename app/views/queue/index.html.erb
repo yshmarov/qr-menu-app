@@ -1,11 +1,11 @@
+<%= turbo_stream_from :orders_list %>
+
 <h1>
   <i class="fa-solid fa-stopwatch"></i>
-  Orders in progress:
-  <span id="queue_count">
-    <%= @orders.count %>
-  </span>
+  <%= t(".title") %>
+  <mark id="queue_count"><%= @orders.count %></mark>
 </h1>
-<%= turbo_stream_from :orders_list %>
+
 <div id="queue">
   <% @orders.each do |order| %>
     <%= render partial: "queue/queue_item", locals: { order: order } %>

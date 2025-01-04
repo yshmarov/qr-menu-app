@@ -1,29 +1,24 @@
 <nav id="nav">
   <%= active_link_to menu_path do %>
     <i class="fa-solid fa-list"></i>
-    <%= t("nav.menu") %>
+    <%= t("menu.index.title") %>
   <% end %>
 
   <%= active_link_to queue_path do %>
     <i class="fa-solid fa-stopwatch"></i>
-    <%= t("nav.queue") %>
+    <%= t("queue.index.title") %>
   <% end %>
 
   <%= active_link_to orders_path do %>
     <i class="fa-solid fa-clock-rotate-left"></i>
-    <%= t("nav.my_orders") %>
-    <mark>
-      <%= @my_orders&.count %>
-    </mark>
+    <%= t("orders.index.title") %>
   <% end %>
 
   <% if @current_order %>
     <%= active_link_to @current_order do %>
       <%#= @current_order.id %>
       <i class="fa-solid fa-cart-shopping"></i>
-      <mark>
-        <%= @current_order.order_items.map(&:quantity).sum %>
-      </mark>
+      <mark><%= @current_order.order_items.map(&:quantity).sum %></mark>
     <% end %>
   <% end %>
 </nav>
