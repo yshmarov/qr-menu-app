@@ -2,6 +2,7 @@ en:
   config:
     app_name: La Petite Maison
     description: Don't wait for the waiter, order here
+    currency: PLN
   nav:
     menu: Menu
     queue: Queue
@@ -13,7 +14,14 @@ en:
   activerecord:
     attributes:
       menu_item:
+        name: Name
+        price: Price
+        menu_category: Category
+        image_url: Image URL
         menu_categories:
           food: Food
           drinks: Drinks
           other: Other
+  menu:
+    index:
+      all: All

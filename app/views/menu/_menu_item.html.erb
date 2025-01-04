@@ -8,7 +8,7 @@
       <%= menu_item.name %>,
     </strong>
     <%= menu_item.price / 100.to_d %>
-    PLN
+    <%= t("config.currency") %>
   </p>
 
   <%= button_to add_to_cart_path(menu_item), method: :post do %>

@@ -5,12 +5,12 @@
 
 <header>
   <nav>
-    <% MenuItem.all.pluck(:menu_category).uniq.sort.each do |menu_category| %>
+    <% @menu_categories.each do |menu_category| %>
       <%= active_link_to menu_path(menu_category: menu_category) do %>
-        <%= menu_category.capitalize %>
+        <%= I18n.t("activerecord.attributes.menu_item.menu_categories.#{menu_category}") %>
       <% end %>
     <% end %>
-    <%= link_to "All", request.path if request.query_parameters.any? %>
+    <%= link_to t(".all"), request.path if request.query_parameters.any? %>
   </nav>
 </header>
 
