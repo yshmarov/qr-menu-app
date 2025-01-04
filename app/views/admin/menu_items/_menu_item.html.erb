@@ -13,12 +13,12 @@
     <%= menu_item.menu_category %>
   </p>
 
-  <%= link_to edit_menu_item_path(menu_item) do %>
+  <%= link_to [:edit, :admin, menu_item] do %>
     <i class="fa-solid fa-pencil"></i>
     Edit
   <% end %>
   <% if menu_item.order_items.none? %>
-    <%= button_to menu_item, method: :delete do %>
+    <%= button_to [:admin, menu_item], method: :delete do %>
       <i class="fa-solid fa-trash"></i>
       Destroy
     <% end %>

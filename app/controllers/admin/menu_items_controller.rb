@@ -1,4 +1,4 @@
-class MenuItemsController < SecuredController
+class Admin::MenuItemsController < SecuredController
   before_action :set_menu_item, only: %i[edit update destroy]
 
   def index
@@ -14,7 +14,7 @@ class MenuItemsController < SecuredController
   def create
     @menu_item = MenuItem.new(menu_item_params)
     if @menu_item.save
-      redirect_to menu_items_url, notice: 'Menu item was successfully created.'
+      redirect_to [:admin, :menu_items], notice: 'Menu item was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class MenuItemsController < SecuredController
 
   def update
     if @menu_item.update(menu_item_params)
-      redirect_to menu_items_url, notice: 'Menu item was successfully updated.'
+      redirect_to [:admin, :menu_items], notice: 'Menu item was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class MenuItemsController < SecuredController
 
   def destroy
     @menu_item.destroy
-    redirect_to menu_items_url, notice: 'Menu item was successfully destroyed.'
+    redirect_to [:admin, :menu_items], notice: 'Menu item was successfully destroyed.'
   end
 
   private

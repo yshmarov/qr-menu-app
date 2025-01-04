@@ -3,10 +3,10 @@
   <mark>admin</mark>
 </h1>
 
-<%= link_to "Add menu item", new_menu_item_path %>
+<%= link_to "Add menu item", [:new, :admin, :menu_item] %>
 
 <section id="menu_items">
   <% @menu_items.each do |menu_item| %>
-    <%= render partial: "menu_items/menu_item", locals:{ menu_item: menu_item } %>
+    <%= render partial: "menu_item", locals:{ menu_item: menu_item } %>
   <% end %>
 </section>

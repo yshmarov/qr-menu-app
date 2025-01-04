@@ -10,11 +10,9 @@ Rails.application.routes.draw do
     resources :order_items, only: :destroy
   end
 
-  # TODO: namespace admin for this
-  resources :menu_items, except: :show
-
   namespace :admin do
-    resources :orders, except: %i[destroy new create edit]
+    resources :menu_items, except: :show
+    resources :orders, only: %i[index show]
     resources :stats, only: :index
   end
 end

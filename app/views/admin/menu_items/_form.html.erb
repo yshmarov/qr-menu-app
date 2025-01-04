@@ -1,4 +1,4 @@
-<%= form_with(model: menu_item) do |form| %>
+<%= form_with(model: [:admin, menu_item]) do |form| %>
   <% if menu_item.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
