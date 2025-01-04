@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Admin::StatsControllerTest < ActionDispatch::IntegrationTest
+class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @headers = { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials(
       SecuredController::USERNAME, SecuredController::PASSWORD
@@ -8,10 +8,10 @@ class Admin::StatsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "index" do
-    get admin_stats_url
+    get admin_orders_url
     assert_response :unauthorized
 
-    get admin_stats_url, headers: @headers
+    get admin_orders_url, headers: @headers
     assert_response :success
   end
 end
