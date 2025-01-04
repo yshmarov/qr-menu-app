@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
   def destroy
+    # TODO: authorize
     @order_item = OrderItem.find(params[:id])
     return unless @order_item.order.draft?
 
