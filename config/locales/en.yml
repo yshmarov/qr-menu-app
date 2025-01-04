@@ -2,6 +2,7 @@ en:
   config:
     app_name: La Petite Maison
     description: Don't wait for the waiter, order here
+    address: ul. Kowalska 123, 00-000 Warszawa
     currency: PLN
     socials:
       instagram: https://www.instagram.com/yaro_the_slav
@@ -12,8 +13,6 @@ en:
       food: Food
       drinks: Drinks
       other: Other
-  nav:
-    my_orders: My Orders
   activerecord:
     attributes:
       menu_item:
