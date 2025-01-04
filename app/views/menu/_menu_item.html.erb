@@ -14,8 +14,7 @@
   <%= button_to add_to_cart_path(menu_item), method: :post do %>
     <i class="fa-solid fa-cart-arrow-down"></i>
     Add to cart
+    <mark><%= menu_item.items_in_cart(@current_order) %></mark>
   <% end %>
   <%#= @current_order&.menu_items&.include?(menu_item) %>
-  <%# Items in cart: %>
-  <%= menu_item.items_in_cart(@current_order) %>
 </article>
