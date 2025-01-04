@@ -1,6 +1,6 @@
 class MenuController < ApplicationController
   def index
-    @menu_categories = MenuItem.all.pluck(:menu_category).uniq.sort
+    @menu_categories = MenuItem.distinct.pluck(:menu_category).sort
     @menu_items = if params[:menu_category].present?
                     MenuItem.where(menu_category: params[:menu_category]).order(name: :asc)
                   else
