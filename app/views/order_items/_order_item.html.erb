@@ -1,24 +1,23 @@
 <blockquote id="<%= dom_id order_item %>">
-  <%= if order_item.menu_item.image_url.present?
-    image_tag order_item.menu_item.image_url, style: "max-width: 100px;"
-  end %>
+  <%= image_tag order_item.menu_item.image_url, style: "max-width: 100px;" if order_item.menu_item.image_url.present? %>
 
   <p>
-    <strong>Menu item:</strong>
-    <%= order_item.menu_item.name %>
+    <%= order_item.menu_item.name %>,
+    <%= order_item.menu_item.menu_category %>
   </p>
 
   <p>
-    <strong>Price:</strong>
     <%= order_item.quantity %>
     X
     <%= order_item.menu_item.price / 100.to_d %>
-    PLN =
+    <%= t("config.currency") %>
+    =
     <%= order_item.total_price / 100.to_d %>
-    PLN
+    <%= t("config.currency") %>
   </p>
+
   <%= button_to [order_item.order, order_item], method: :delete, disabled: !@order.draft? do %>
     <i class="fa-solid fa-trash"></i>
-    Remove from order
+    <%= t(".remove") %>
   <% end %>
 </blockquote>

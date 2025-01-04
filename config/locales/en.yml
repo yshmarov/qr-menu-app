@@ -21,7 +21,7 @@ en:
         menu_category: Category
         image_url: Image URL
       order:
-        delivery_details: Delivery details
+        delivery_details: Delivery
   menu:
     index:
       title: Menu
@@ -40,3 +40,5 @@ en:
   order_items:
     destroy:
       notice: Item removed from order
+    order_item:
+      remove: Remove from order
