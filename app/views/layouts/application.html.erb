@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Restorder</title>
+    <title><%= t('config.app_name') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,10 +15,12 @@
     <header>
       <h1>
         <i class="fa-solid fa-utensils"></i>
-        StepByStep Menu
+        <%= t('config.app_name') %>
       </h1>
       <p>
-        <%= session[:table_delivery] %>
+        <%= t('config.description') %>
+        <%# TODO: display table delivery %>
+        <%#= session[:table_delivery] %>
       </p>
       <%= render 'shared/nav' %>
     </header>

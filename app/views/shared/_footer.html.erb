@@ -1,23 +1,23 @@
 <footer>
-  Made in
+  <%= t('config.app_name') %>
+  ©
   <%= Time.zone.now.year %>
-  by Yaro, Marek, Szymon
 
   <br>
 
   <%= link_to [:admin, :menu_items] do %>
-    Edit menu
+    <%= t('footer.edit_menu') %>
   <% end %>
 
   <br>
 
   <%= link_to admin_orders_path do %>
-    Manage orders
+    <%= t('footer.manage_orders') %>
   <% end %>
 
   <br>
 
   <%= link_to admin_stats_path do %>
-    Stats
+    <%= t('footer.stats') %>
   <% end %>
 </footer>
