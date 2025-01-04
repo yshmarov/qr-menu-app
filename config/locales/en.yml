@@ -33,6 +33,7 @@ en:
       title: My Orders
     order:
       items: items
+      rating: Rate the order
   queue:
     index:
       title: Orders in progress

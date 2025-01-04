@@ -35,7 +35,9 @@
 
   <% if order.done? %>
     <hr>
-    Please rate your order
+    <p>
+      <%= t(".rating") %>
+    </p>
     <div style="display: flex; justify-content: space-between;">
       <%= button_to order_path(order), params: {order: { id: order.id, rating: 1 }}, method: :put, disabled: order.rating.equal?(1) do %>
         <i class="fa-solid fa-face-dizzy"></i>
