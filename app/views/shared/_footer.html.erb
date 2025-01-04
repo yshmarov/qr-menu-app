@@ -1,16 +1,23 @@
-Made in
-<%= Time.zone.now.year %>
-by Yaro, Marek, Szymon
-<nav>
+<footer>
+  Made in
+  <%= Time.zone.now.year %>
+  by Yaro, Marek, Szymon
+
+  <br>
+
   <%= link_to menu_items_path do %>
     Edit menu
   <% end %>
+
   <br>
+
   <%= link_to admin_orders_path do %>
     Manage orders
   <% end %>
+
   <br>
+
   <%= link_to admin_stats_path do %>
     Stats
   <% end %>
-</nav>
+</footer>

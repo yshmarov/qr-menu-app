@@ -13,12 +13,14 @@
 
   <body>
     <header>
-      <h2>
+      <h1>
         <i class="fa-solid fa-utensils"></i>
         StepByStep Menu
+      </h1>
+      <p>
         <%= session[:table_delivery] %>
-      </h2>
-      <%= render 'shared/header' %>
+      </p>
+      <%= render 'shared/nav' %>
     </header>
     <main>
       <%= render 'shared/flash' %>

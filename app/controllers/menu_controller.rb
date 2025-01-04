@@ -50,7 +50,7 @@ class MenuController < ApplicationController
         flash.now[:notice] = notice_text
         render turbo_stream: [
           turbo_stream.replace(@menu_item, partial: 'menu/menu_item', locals: { menu_item: @menu_item }),
-          turbo_stream.replace('header_navigation', partial: 'shared/header'),
+          turbo_stream.replace('nav', partial: 'shared/nav'),
           turbo_stream.replace('flash', partial: 'shared/flash')
         ]
       end
