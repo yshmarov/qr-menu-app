@@ -1,10 +1,3 @@
-# 10.times do
-#   MenuItem.create(
-#     name: Faker::Food.dish,
-#     price: rand(10..50) * 100
-#   )
-# end
-
 MenuItem.create(name: 'Prince Polo', price: 199, menu_category: 'food', image_url: 'https://i.imgur.com/l4tEqmL.png')
 # MenuItem.create(name: 'Donut Chocolate', price: 129, menu_category: 'food', image_url: 'https://i.imgur.com/LRwEakM.png')
 # MenuItem.create(name: 'Donut limited', price: 159, menu_category: 'food', image_url: 'https://i.imgur.com/3sgNWeJ.png')
