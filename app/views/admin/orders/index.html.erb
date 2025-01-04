@@ -1,7 +1,9 @@
 <h1>
-  <i class="fa-solid fa-clock-rotate-left"></i>
-  Kitchen:
-  <%= @orders.count %>
+  <mark>admin</mark>
+  <%= t("admin.orders.index.title") %>
+  <mark>
+    <%= @orders.count %>
+  </mark>
 </h1>
 
 <div id="orders">

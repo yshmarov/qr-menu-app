@@ -9,10 +9,6 @@ en:
       other: Other
   nav:
     my_orders: My Orders
-  footer:
-    edit_menu: Edit menu
-    manage_orders: Manage orders
-    stats: Stats
   activerecord:
     attributes:
       menu_item:
@@ -42,3 +38,13 @@ en:
       notice: Item removed from order
     order_item:
       remove: Remove from order
+  admin:
+    orders:
+      index:
+        title: Manage orders
+    stats:
+      index:
+        title: Stats
+    menu_items:
+      index:
+        title: Menu editor
