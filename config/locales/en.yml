@@ -3,6 +3,10 @@ en:
     app_name: La Petite Maison
     description: Don't wait for the waiter, order here
     currency: PLN
+    menu_categories:
+      food: Food
+      drinks: Drinks
+      other: Other
   nav:
     menu: Menu
     queue: Queue
@@ -18,10 +22,6 @@ en:
         price: Price
         menu_category: Category
         image_url: Image URL
-        menu_categories:
-          food: Food
-          drinks: Drinks
-          other: Other
   menu:
     index:
       all: All

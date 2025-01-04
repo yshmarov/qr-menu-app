@@ -8,7 +8,7 @@ class MenuItem < ApplicationRecord
   has_many :orders, through: :order_items
 
   def self.menu_categories
-    I18n.t('activerecord.attributes.menu_item.menu_categories')
+    I18n.t('config.menu_categories')
   end
 
   validates :menu_category, inclusion: { in: menu_categories.stringify_keys.keys }
