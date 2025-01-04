@@ -1,4 +1,4 @@
-import { Application } from "@hotwired/stimulus"
+import { Application } from '@hotwired/stimulus'
 
 const application = Application.start()
 
@@ -8,5 +8,5 @@ window.Stimulus = application
 
 export { application }
 
-import "chartkick"
-import "Chart.bundle"
+import 'chartkick'
+import 'Chart.bundle'
