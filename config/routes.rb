@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :menu_items, except: :show
-    resources :orders, only: %i[index show]
+    resources :orders, only: %i[index show update]
     resources :stats, only: :index
   end
 end
