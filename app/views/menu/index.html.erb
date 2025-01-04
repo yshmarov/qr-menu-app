@@ -10,11 +10,11 @@
         <%= menu_category.capitalize %>
         <% end %>
     <% end %>
-    <%= link_to "Full menu", request.path if request.query_parameters.any? %>
+    <%= link_to "All", request.path if request.query_parameters.any? %>
   </nav>
 </header>
 
-<div id="menu">
+<div id="menu" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
   <% @menu_items.each do |menu_item| %>
     <%= render partial: "menu/menu_item", locals:{ menu_item: menu_item } %>
   <% end %>
