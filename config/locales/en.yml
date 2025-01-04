@@ -3,6 +3,11 @@ en:
     app_name: La Petite Maison
     description: Don't wait for the waiter, order here
     currency: PLN
+    socials:
+      instagram: https://www.instagram.com/yaro_the_slav
+      twitter: https://twitter.com/yarotheslav
+      tiktok: ''
+      linkedin: ''
     menu_categories:
       food: Food
       drinks: Drinks
