@@ -5,7 +5,7 @@
 
 <%= link_to "Add menu item", [:new, :admin, :menu_item] %>
 
-<section id="menu_items">
+<section id="menu_items" class="grid-cols-auto-fit">
   <% @menu_items.each do |menu_item| %>
     <%= render partial: "menu_item", locals:{ menu_item: menu_item } %>
   <% end %>

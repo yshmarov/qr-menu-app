@@ -14,7 +14,7 @@
   </nav>
 </header>
 
-<div id="menu" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+<div id="menu" class="grid-cols-auto-fit">
   <% @menu_items.each do |menu_item| %>
     <%= render partial: "menu/menu_item", locals:{ menu_item: menu_item } %>
   <% end %>

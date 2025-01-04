@@ -47,4 +47,4 @@ Or "pay at storefront?
 
 7. Org/Restaurant can have custom branding; domain.
 
-8. I18n
+8. I18n  <p>

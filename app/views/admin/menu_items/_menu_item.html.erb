@@ -1,4 +1,4 @@
-<blockquote id="<%= dom_id menu_item %>">
+<article class="notice" id="<%= dom_id menu_item %>">
   <%= image_tag menu_item.image_url, style: "max-width: 300px;" if menu_item.image_url.present? %>
 
   <p>
@@ -23,4 +23,4 @@
       Destroy
     <% end %>
   <% end %>
-</blockquote>
+</article>
