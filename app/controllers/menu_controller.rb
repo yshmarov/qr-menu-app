@@ -3,9 +3,9 @@ class MenuController < ApplicationController
     @menu_categories = MenuItem.distinct.pluck(:menu_category).sort
     @menu_items = if params[:menu_category].present?
                     MenuItem.where(menu_category: params[:menu_category]).order(name: :asc)
-                  else
+    else
                     MenuItem.order(menu_category: :desc, name: :asc)
-                  end
+    end
   end
 
   # the default url to open from QR
@@ -27,7 +27,7 @@ class MenuController < ApplicationController
     # add +1 item to cart
     @order_item.increment!(:quantity)
     # set delivery delivery
-    delivery_method = session[:table_delivery].presence || 'To go'
+    delivery_method = session[:table_delivery].presence || "To go"
     @order.update(delivery_details: delivery_method)
     # clear table
     session[:table_delivery] = nil
@@ -46,9 +46,9 @@ class MenuController < ApplicationController
       format.turbo_stream do
         flash.now[:notice] = notice_text
         render turbo_stream: [
-          turbo_stream.replace(@menu_item, partial: 'menu/menu_item', locals: { menu_item: @menu_item }),
-          turbo_stream.replace('nav', partial: 'shared/nav'),
-          turbo_stream.replace('flash', partial: 'shared/flash')
+          turbo_stream.replace(@menu_item, partial: "menu/menu_item", locals: { menu_item: @menu_item }),
+          turbo_stream.replace("nav", partial: "shared/nav"),
+          turbo_stream.replace("flash", partial: "shared/flash")
         ]
       end
     end
