@@ -1,6 +1,6 @@
 module Admin
   class OrdersController < SecuredController
-    before_action :set_order, only: %i[show edit update]
+    before_action :set_order, only: %i[show update]
 
     # orders being worked on
     def index
