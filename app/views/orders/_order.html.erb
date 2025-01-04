@@ -12,6 +12,7 @@
   <p id="order_status">
     <%= render partial: "orders/status", locals: { order: order } %>
   </p>
+  <%# TODO: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress#describing_a_particular_region %>
 
   <p>
     <strong><%= t("activerecord.attributes.order.delivery_details") %></strong>
