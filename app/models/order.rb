@@ -4,11 +4,13 @@ class Order < ApplicationRecord
                   processing: "processing",
                   delivery: "delivery",
                   done: "done" }
+
   has_many :order_items, dependent: :destroy
   has_many :menu_items, through: :order_items
+
   validates :status, presence: true
 
-  # validate max 1 draft per user
+  # TODO: validate max 1 draft per user
   scope :queued, -> { where(status: %w[submitted processing delivery]) }
 
   def next_status
