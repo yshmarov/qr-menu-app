@@ -2,12 +2,14 @@
   Stats
 </h1>
 <section>
-  <h4>
+  <h3>
     Most popular menu items
-  </h4>
-  <%= pie_chart OrderItem.joins(:menu_item).group("menu_items.name").count %>
-  <h4>
+  </h3>
+  <%= pie_chart @most_popular_menu_items %>
+</section>
+<section>
+  <h3>
     Satisfaction
-  </h4>
-  <%= column_chart Order.group(:rating).count %>
+  </h3>
+  <%= column_chart @satisfaction %>
 </section>
