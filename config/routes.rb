@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
+
   root to: redirect("/shop")
 
-  get "qr", to: "shop#qr"
   get "shop", to: "shop#index"
-  get "queue", to: "queue#index"
+  resources :products, only: :show
+
+  get "qr", to: "shop#qr"
   post "add_to_cart/:product_id", to: "shop#add_to_cart", as: :add_to_cart
+
+  get "queue", to: "queue#index"
 
   resources :orders, except: %i[destroy new create edit] do
     resources :order_items, only: :destroy
