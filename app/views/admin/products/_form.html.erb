@@ -18,6 +18,11 @@
   </div>
 
   <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
     <%= form.label :category, style: "display: block" %>
     <%= form.select :category, Product.categories.invert %>
   </div>
