@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     else
                     Product.order(category: :desc, name: :asc)
     end
+    @products = @products.search(params[:query]) if params[:query].present?
   end
 
   def show; end

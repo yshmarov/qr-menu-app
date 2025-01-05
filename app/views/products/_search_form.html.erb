@@ -1,0 +1,4 @@
+<%= form_with url: url_for, method: :get do |form| %>
+  <%= form.search_field :query, value: params[:query], placeholder: t(".placeholder"), autocomplete: "off", autocorrect: "off" %>
+  <%= form.submit t(".submit") %>
+<% end %>

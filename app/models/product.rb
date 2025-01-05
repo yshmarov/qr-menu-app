@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   has_many :order_items, dependent: :restrict_with_error
   has_many :orders, through: :order_items
 
+  scope :search, ->(query) { where("name ILIKE ?", "%#{query}%") }
+
   def self.categories
     I18n.t("config.categories")
   end

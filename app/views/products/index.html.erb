@@ -11,6 +11,7 @@
       <% end %>
     <% end %>
     <%= link_to t(".all"), request.path if request.query_parameters.any? %>
+    <%= render "products/search_form" %>
   </nav>
 </header>
 
