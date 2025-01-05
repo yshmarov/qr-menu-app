@@ -13,7 +13,7 @@ class ShopController < ApplicationController
     @order = @current_order.presence || Order.create(
       status: Order.statuses[:draft],
       delivery_details:,
-      session_uid: current_guest_id
+      user_id: current_guest_id
     )
     # clear table for next order creation
     session[:table_delivery] = nil

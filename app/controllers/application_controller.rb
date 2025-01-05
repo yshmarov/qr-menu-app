@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_orders
-    @my_orders ||= Order.where(session_uid: current_guest_id)
+    @my_orders ||= Order.where(user_id: current_guest_id)
     @current_order ||= @my_orders.draft.first
   end
 
