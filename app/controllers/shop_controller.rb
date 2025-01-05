@@ -46,7 +46,7 @@ class ShopController < ApplicationController
       format.turbo_stream do
         flash.now[:notice] = notice_text
         render turbo_stream: [
-          turbo_stream.replace(@product, partial: "shop/product", locals: { product: @product }),
+          turbo_stream.replace(@product, partial: "products/product", locals: { product: @product }),
           turbo_stream.replace("nav", partial: "shared/nav"),
           turbo_stream.replace("flash", partial: "shared/flash")
         ]
