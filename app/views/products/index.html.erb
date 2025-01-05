@@ -6,7 +6,7 @@
 <header>
   <nav>
     <% @categories.each do |category| %>
-      <%= active_link_to shop_path(category:) do %>
+      <%= active_link_to products_path(category:) do %>
         <%= I18n.t("config.categories.#{category}") %>
       <% end %>
     <% end %>

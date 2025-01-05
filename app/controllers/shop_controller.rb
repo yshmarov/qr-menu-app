@@ -1,18 +1,9 @@
 class ShopController < ApplicationController
-  def index
-    @categories = Product.distinct.pluck(:category).sort
-    @products = if params[:category].present?
-                    Product.where(category: params[:category]).order(name: :asc)
-    else
-                    Product.order(category: :desc, name: :asc)
-    end
-  end
-
   # the default url to open from QR
   # /qr?table_delivery=3
   def qr
     session[:table_delivery] = params[:table_delivery]
-    redirect_to shop_path
+    redirect_to products_path
   end
 
   def add_to_cart
@@ -41,7 +32,7 @@ class ShopController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to shop_path, notice: notice_text
+        redirect_to products_path, notice: notice_text
       end
       format.turbo_stream do
         flash.now[:notice] = notice_text

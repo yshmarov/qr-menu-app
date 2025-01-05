@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
-  root to: redirect("/shop")
+  root to: redirect("/products")
 
-  get "shop", to: "shop#index"
-  resources :products, only: :show
+  resources :products, only: %i[index show]
 
   get "qr", to: "shop#qr"
   post "add_to_cart/:product_id", to: "shop#add_to_cart", as: :add_to_cart
