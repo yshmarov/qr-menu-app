@@ -7,21 +7,22 @@ class ShopController < ApplicationController
   end
 
   def add_to_cart
+    # set delivery delivery
+    delivery_details = session[:table_delivery].presence || "To go"
     # find or create order
     @order = @current_order.presence || Order.create(
       status: Order.statuses[:draft],
+      delivery_details:,
       session_uid: @user_id
     )
+    # clear table for next order creation
+    session[:table_delivery] = nil
+
     # add to cart
     @product = Product.find(params[:product_id])
     @order_item = @order.order_items.find_or_create_by(product: @product)
     # add +1 item to cart
     @order_item.increment!(:quantity)
-    # set delivery delivery
-    delivery_method = session[:table_delivery].presence || "To go"
-    @order.update(delivery_details: delivery_method)
-    # clear table
-    session[:table_delivery] = nil
     # balance calculation
     @order_item.calculate_total_price
     @order.calculate_total_price
