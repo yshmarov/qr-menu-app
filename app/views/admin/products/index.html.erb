@@ -6,7 +6,5 @@
 <%= link_to "Add product", %i[new admin product] %>
 
 <section id="products" class="grid-cols-auto-fit">
-  <% @products.each do |product| %>
-    <%= render partial: "product", locals: { product: product } %>
-  <% end %>
+  <%= render collection: @products, partial: "product", as: :product %>
 </section>

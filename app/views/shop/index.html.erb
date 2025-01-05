@@ -15,7 +15,5 @@
 </header>
 
 <div id="shop" class="grid-cols-auto-fit">
-  <% @products.each do |product| %>
-    <%= render partial: "shop/product", locals: { product: product } %>
-  <% end %>
+  <%= render collection: @products, partial: "shop/product", as: :product %>
 </div>

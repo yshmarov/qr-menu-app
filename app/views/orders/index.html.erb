@@ -5,7 +5,5 @@
 </h1>
 
 <div id="orders">
-  <% @orders.each do |order| %>
-    <%= render partial: "orders/order", locals: { order: order } %>
-  <% end %>
+  <%= render collection: @orders, partial: "orders/order", as: :order %>
 </div>
