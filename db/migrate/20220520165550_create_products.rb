@@ -4,6 +4,8 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name
       t.integer :price
       t.string :image_url
+      t.string :category, null: false, default: 'food'
+      t.text :description
 
       t.timestamps
     end
