@@ -2,7 +2,7 @@
   <%= image_tag product.image_url, style: "max-width: 300px; max-height: 300px;" if product.image_url.present? %>
 
   <p>
-    <%= link_to product.name, product %>,
+    <%= link_to_unless_current product.name, product %>,
     <%= product.price / 100.to_d %>
     <%= t("config.currency") %>
   </p>
