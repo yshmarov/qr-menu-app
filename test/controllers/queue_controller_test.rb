@@ -5,4 +5,8 @@ class QueueControllerTest < ActionDispatch::IntegrationTest
     get queue_url
     assert_response :success
   end
+
+  test "index when public_order_queue is false" do
+    skip
+  end
 end

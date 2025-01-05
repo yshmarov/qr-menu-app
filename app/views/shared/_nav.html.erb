@@ -4,9 +4,11 @@
     <%= t("products.index.title") %>
   <% end %>
 
-  <%= active_link_to queue_path do %>
-    <i class="fa-solid fa-stopwatch"></i>
-    <%= t("queue.index.title") %>
+  <% if Rails.application.config_for(:settings).dig(:public_order_queue) %>
+    <%= active_link_to queue_path do %>
+      <i class="fa-solid fa-stopwatch"></i>
+      <%= t("queue.index.title") %>
+    <% end %>
   <% end %>
 
   <%= active_link_to orders_path do %>
