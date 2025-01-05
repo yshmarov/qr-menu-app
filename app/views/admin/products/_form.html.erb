@@ -1,11 +1,11 @@
-<%= form_with(model: [:admin, menu_item]) do |form| %>
-  <% if menu_item.errors.any? %>
+<%= form_with(model: [:admin, product]) do |form| %>
+  <% if product.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(menu_item.errors.count, "error") %>
-        prohibited this menu_item from being saved:</h2>
+      <h2><%= pluralize(product.errors.count, "error") %>
+        prohibited this product from being saved:</h2>
 
       <ul>
-        <% menu_item.errors.each do |error| %>
+        <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -19,7 +19,7 @@
 
   <div>
     <%= form.label :menu_category, style: "display: block" %>
-    <%= form.select :menu_category, MenuItem.menu_categories.invert %>
+    <%= form.select :menu_category, Product.menu_categories.invert %>
   </div>
 
   <div>

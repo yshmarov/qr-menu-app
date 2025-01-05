@@ -15,7 +15,7 @@
 </header>
 
 <div id="menu" class="grid-cols-auto-fit">
-  <% @menu_items.each do |menu_item| %>
-    <%= render partial: "menu/menu_item", locals: { menu_item: menu_item } %>
+  <% @products.each do |product| %>
+    <%= render partial: "menu/product", locals: { product: product } %>
   <% end %>
 </div>

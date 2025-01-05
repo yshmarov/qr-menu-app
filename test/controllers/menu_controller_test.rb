@@ -5,16 +5,16 @@ class MenuControllerTest < ActionDispatch::IntegrationTest
     get menu_url
     assert_response :success
 
-    menu_item_drink = menu_items(:monster_classic)
-    menu_item_food = menu_items(:rafaello)
+    product_drink = products(:monster_classic)
+    product_food = products(:rafaello)
 
-    assert_match menu_item_drink.name, response.body
-    assert_match menu_item_food.name, response.body
+    assert_match product_drink.name, response.body
+    assert_match product_food.name, response.body
 
     # filter by category
     get menu_url(menu_category: "food")
     assert_response :success
-    assert_match menu_item_food.name, response.body
-    assert_no_match menu_item_drink.name, response.body
+    assert_match product_food.name, response.body
+    assert_no_match product_drink.name, response.body
   end
 end

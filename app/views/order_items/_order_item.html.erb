@@ -1,15 +1,15 @@
 <blockquote id="<%= dom_id order_item %>">
-  <%= image_tag order_item.menu_item.image_url, style: "max-width: 100px;" if order_item.menu_item.image_url.present? %>
+  <%= image_tag order_item.product.image_url, style: "max-width: 100px;" if order_item.product.image_url.present? %>
 
   <p>
-    <%= order_item.menu_item.name %>,
-    <%= order_item.menu_item.menu_category %>
+    <%= order_item.product.name %>,
+    <%= order_item.product.menu_category %>
   </p>
 
   <p>
     <%= order_item.quantity %>
     X
-    <%= order_item.menu_item.price / 100.to_d %>
+    <%= order_item.product.price / 100.to_d %>
     <%= t("config.currency") %>
     =
     <%= order_item.total_price / 100.to_d %>

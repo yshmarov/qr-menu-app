@@ -14,24 +14,15 @@ ActiveRecord::Schema[8.0].define(version: 2022_05_22_101904) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "menu_items", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "menu_category", default: "food", null: false
-  end
-
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
-    t.bigint "menu_item_id", null: false
+    t.bigint "product_id", null: false
     t.integer "quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "total_price", default: 0, null: false
-    t.index ["menu_item_id"], name: "index_order_items_on_menu_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -44,6 +35,15 @@ ActiveRecord::Schema[8.0].define(version: 2022_05_22_101904) do
     t.integer "rating"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "menu_category", default: "food", null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -53,6 +53,6 @@ ActiveRecord::Schema[8.0].define(version: 2022_05_22_101904) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  add_foreign_key "order_items", "menu_items"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
 end

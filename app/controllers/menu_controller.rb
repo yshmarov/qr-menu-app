@@ -1,10 +1,10 @@
 class MenuController < ApplicationController
   def index
-    @menu_categories = MenuItem.distinct.pluck(:menu_category).sort
-    @menu_items = if params[:menu_category].present?
-                    MenuItem.where(menu_category: params[:menu_category]).order(name: :asc)
+    @menu_categories = Product.distinct.pluck(:menu_category).sort
+    @products = if params[:menu_category].present?
+                    Product.where(menu_category: params[:menu_category]).order(name: :asc)
     else
-                    MenuItem.order(menu_category: :desc, name: :asc)
+                    Product.order(menu_category: :desc, name: :asc)
     end
   end
 
@@ -22,8 +22,8 @@ class MenuController < ApplicationController
       session_uid: @user_id
     )
     # add to cart
-    @menu_item = MenuItem.find(params[:menu_item_id])
-    @order_item = @order.order_items.find_or_create_by(menu_item: @menu_item)
+    @product = Product.find(params[:product_id])
+    @order_item = @order.order_items.find_or_create_by(product: @product)
     # add +1 item to cart
     @order_item.increment!(:quantity)
     # set delivery delivery
@@ -37,7 +37,7 @@ class MenuController < ApplicationController
 
     @current_order = @order
 
-    notice_text = "#{@menu_item.name} added to cart"
+    notice_text = "#{@product.name} added to cart"
 
     respond_to do |format|
       format.html do
@@ -46,7 +46,7 @@ class MenuController < ApplicationController
       format.turbo_stream do
         flash.now[:notice] = notice_text
         render turbo_stream: [
-          turbo_stream.replace(@menu_item, partial: "menu/menu_item", locals: { menu_item: @menu_item }),
+          turbo_stream.replace(@product, partial: "menu/product", locals: { product: @product }),
           turbo_stream.replace("nav", partial: "shared/nav"),
           turbo_stream.replace("flash", partial: "shared/flash")
         ]

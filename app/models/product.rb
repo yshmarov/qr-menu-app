@@ -1,4 +1,4 @@
-class MenuItem < ApplicationRecord
+class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :menu_category, presence: true

@@ -15,7 +15,7 @@ en:
       other: Other
   activerecord:
     attributes:
-      menu_item:
+      product:
         name: Name
         price: Price
         menu_category: Category
@@ -26,7 +26,7 @@ en:
     index:
       title: Menu
       all: All
-    menu_item:
+    product:
       add_to_cart: Add to cart
   orders:
     index:
@@ -49,6 +49,6 @@ en:
     stats:
       index:
         title: Stats
-    menu_items:
+    products:
       index:
         title: Menu editor
