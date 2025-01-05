@@ -1,31 +1,41 @@
 <footer>
-  <%= t('config.app_name') %>
-  ©
-  <%= Time.zone.now.year %>
+  <div>
+    <%= t('config.app_name') %>
+    ©
+    <%= Time.zone.now.year %>
+  </div>
 
-  <br>
+  <div>
+    <%= render 'shared/social_links' %>
+  </div>
 
-  <%= render 'shared/social_links' %>
+  <div>
+    <%= t('config.address') %>
+  </div>
 
-  <br>
+  <div>
+    <%= mail_to t('config.email') %>
+  </div>
 
-  <%= t('config.address') %>
+  <div>
+    <%= t('config.phone') %>
+  </div>
 
-  <br>
-
+  <div>
   <%= link_to admin_orders_path do %>
-    <%= t('admin.orders.index.title') %>
-  <% end %>
+      <%= t('admin.orders.index.title') %>
+    <% end %>
+  </div>
 
-  <br>
+  <div>
+    <%= link_to [:admin, :products] do %>
+      <%= t('admin.products.index.title') %>
+    <% end %>
+  </div>
 
-  <%= link_to [:admin, :products] do %>
-    <%= t('admin.products.index.title') %>
-  <% end %>
-
-  <br>
-
-  <%= link_to admin_stats_path do %>
-    <%= t('admin.stats.index.title') %>
-  <% end %>
+  <div>
+    <%= link_to admin_stats_path do %>
+      <%= t('admin.stats.index.title') %>
+    <% end %>
+  </div>
 </footer>

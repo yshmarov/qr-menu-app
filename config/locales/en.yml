@@ -4,6 +4,8 @@ en:
     description: Don't wait for the waiter, order here
     address: ul. Kowalska 123, 00-000 Warszawa
     currency: PLN
+    email: info@lapetitemaison.fr
+    phone: +48 123 456 789
     socials:
       instagram: https://www.instagram.com/yaro_the_slav
       twitter: https://twitter.com/yarotheslav
