@@ -63,6 +63,5 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "activerecord-session_store"
 gem "chartkick"
 gem "groupdate"
