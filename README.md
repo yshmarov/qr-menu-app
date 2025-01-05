@@ -1,50 +1,26 @@
-# README
+# Minimal ecommerce store
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Customer:
 
-Things you may want to cover:
+- ✅ Add to cart
+- ✅ Checkout
+- ⏳ Payment processing
+- ✅ Order queue (private or public)
+- ✅ Order history
 
-* Ruby version
+### Admin:
 
-* System dependencies
+- ✅ Stats
+- ✅ Order fulfillment
+- ✅ Product management
 
-* Configuration
+### Delivery options based on your business model:
 
-* Database creation
+- ✅ To go - for restaurants & digital sales
+- ✅ Table service - for restaurants
+- ⏳ Delivery - for physical products (coming soon)
 
-* Database initialization
+## Usecases
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-### Usage
-
-https://www.ewlit.com/qr?table_delivery=1
-
-### TODO:
-
-1. Kitchen should see live order. 
-
-Same as orders in progress but with order_items and change_status button?
-
-2. Stats
-
-3. Stripe payments. Stripe marketplace*
-
-Or "pay at storefront?
-
-4. Optional Log in for consumer
-
-5. Multitenancy
-
-6. Menu item availability:boolean
-
-7. Org/Restaurant can have custom branding; domain.
-
-8. I18n  <p>
+- McDonalds-like self-service (restaurant)
+- Online bookstore
