@@ -6,6 +6,8 @@ en:
     currency: PLN
     email: info@lapetitemaison.fr
     phone: +48 123 456 789
+    trade_name: 'La Petite Maison LLC'
+    trade_vat_number: 'PL1234567890'
     public_order_queue: true
     socials:
       instagram: https://www.instagram.com/yaro_the_slav
