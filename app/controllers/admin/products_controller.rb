@@ -14,7 +14,7 @@ class Admin::ProductsController < SecuredController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to %i[admin products], notice: "Menu item created."
+      redirect_to %i[admin products], notice: "Product created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class Admin::ProductsController < SecuredController
 
   def update
     if @product.update(product_params)
-      redirect_to %i[admin products], notice: "Menu item updated."
+      redirect_to %i[admin products], notice: "Product updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Admin::ProductsController < SecuredController
 
   def destroy
     @product.destroy
-    redirect_to %i[admin products], notice: "Menu item destroyed."
+    redirect_to %i[admin products], notice: "Product destroyed."
   end
 
   private

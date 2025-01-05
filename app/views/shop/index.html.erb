@@ -6,7 +6,7 @@
 <header>
   <nav>
     <% @categories.each do |category| %>
-      <%= active_link_to menu_path(category:) do %>
+      <%= active_link_to shop_path(category:) do %>
         <%= I18n.t("config.categories.#{category}") %>
       <% end %>
     <% end %>
@@ -14,8 +14,8 @@
   </nav>
 </header>
 
-<div id="menu" class="grid-cols-auto-fit">
+<div id="shop" class="grid-cols-auto-fit">
   <% @products.each do |product| %>
-    <%= render partial: "menu/product", locals: { product: product } %>
+    <%= render partial: "shop/product", locals: { product: product } %>
   <% end %>
 </div>

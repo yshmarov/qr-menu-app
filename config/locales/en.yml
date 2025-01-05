@@ -22,9 +22,9 @@ en:
         image_url: Image URL
       order:
         delivery_details: Delivery
-  menu:
+  shop:
     index:
-      title: Menu
+      title: Shop
       all: All
     product:
       add_to_cart: Add to cart
@@ -51,4 +51,4 @@ en:
         title: Stats
     products:
       index:
-        title: Menu editor
+        title: Edit products

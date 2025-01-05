@@ -1,4 +1,4 @@
-class MenuController < ApplicationController
+class ShopController < ApplicationController
   def index
     @categories = Product.distinct.pluck(:category).sort
     @products = if params[:category].present?
@@ -12,7 +12,7 @@ class MenuController < ApplicationController
   # /qr?table_delivery=3
   def qr
     session[:table_delivery] = params[:table_delivery]
-    redirect_to menu_path
+    redirect_to shop_path
   end
 
   def add_to_cart
@@ -41,12 +41,12 @@ class MenuController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to menu_url, notice: notice_text
+        redirect_to shop_path, notice: notice_text
       end
       format.turbo_stream do
         flash.now[:notice] = notice_text
         render turbo_stream: [
-          turbo_stream.replace(@product, partial: "menu/product", locals: { product: @product }),
+          turbo_stream.replace(@product, partial: "shop/product", locals: { product: @product }),
           turbo_stream.replace("nav", partial: "shared/nav"),
           turbo_stream.replace("flash", partial: "shared/flash")
         ]
