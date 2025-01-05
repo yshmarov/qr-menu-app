@@ -40,6 +40,6 @@ class Admin::ProductsController < SecuredController
   end
 
   def product_params
-    params.require(:product).permit(:name, :price, :image_url, :menu_category)
+    params.require(:product).permit(:name, :price, :image_url, :category)
   end
 end

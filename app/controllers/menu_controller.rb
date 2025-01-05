@@ -1,10 +1,10 @@
 class MenuController < ApplicationController
   def index
-    @menu_categories = Product.distinct.pluck(:menu_category).sort
-    @products = if params[:menu_category].present?
-                    Product.where(menu_category: params[:menu_category]).order(name: :asc)
+    @categories = Product.distinct.pluck(:category).sort
+    @products = if params[:category].present?
+                    Product.where(category: params[:category]).order(name: :asc)
     else
-                    Product.order(menu_category: :desc, name: :asc)
+                    Product.order(category: :desc, name: :asc)
     end
   end
 

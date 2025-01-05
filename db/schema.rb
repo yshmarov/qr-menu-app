@@ -41,7 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2022_05_22_101904) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "menu_category", default: "food", null: false
+    t.string "category", default: "food", null: false
   end
 
   create_table "sessions", force: :cascade do |t|

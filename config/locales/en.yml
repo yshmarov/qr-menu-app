@@ -9,7 +9,7 @@ en:
       twitter: https://twitter.com/yarotheslav
       tiktok: ''
       linkedin: ''
-    menu_categories:
+    categories:
       food: Food
       drinks: Drinks
       other: Other
@@ -18,7 +18,7 @@ en:
       product:
         name: Name
         price: Price
-        menu_category: Category
+        category: Category
         image_url: Image URL
       order:
         delivery_details: Delivery

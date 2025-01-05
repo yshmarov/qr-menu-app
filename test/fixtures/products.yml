@@ -1,11 +1,11 @@
 monster_classic:
   name: 'Monster classic'
   price: 599
-  menu_category: 'drinks'
+  category: 'drinks'
   image_url: 'https://i.imgur.com/WEDXcDi.png'
 
 rafaello:
   name: 'Rafaello'
   price: 99
-  menu_category: 'food'
+  category: 'food'
   image_url: 'https://i.imgur.com/XwLtkud.png'

@@ -5,9 +5,9 @@
 
 <header>
   <nav>
-    <% @menu_categories.each do |menu_category| %>
-      <%= active_link_to menu_path(menu_category:) do %>
-        <%= I18n.t("config.menu_categories.#{menu_category}") %>
+    <% @categories.each do |category| %>
+      <%= active_link_to menu_path(category:) do %>
+        <%= I18n.t("config.categories.#{category}") %>
       <% end %>
     <% end %>
     <%= link_to t(".all"), request.path if request.query_parameters.any? %>
