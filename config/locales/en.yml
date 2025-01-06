@@ -39,6 +39,9 @@ en:
       # title: Menu
       title: Shop
       all: All
+    search_form:
+      placeholder: Search products...
+      submit: Search
     product:
       add_to_cart: Add to cart
   orders:
