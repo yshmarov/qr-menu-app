@@ -24,7 +24,12 @@
 
   <div>
     <%= form.label :category, style: "display: block" %>
-    <%= form.select :category, Product.categories.invert %>
+    <% Product.categories.invert.each do |name, value| %>
+      <div>
+        <%= form.radio_button :category, value %>
+        <%= form.label "category_#{value}", name, for: "product_category_#{value}" %>
+      </div>
+    <% end %>
   </div>
 
   <div>
