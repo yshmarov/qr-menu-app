@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "queue", to: "queue#index"
 
   resources :orders, except: %i[destroy new create edit] do
-    resources :order_items, only: :destroy
+    resources :order_items, only: %i[destroy update]
   end
 
   namespace :admin do

@@ -7,7 +7,11 @@
   </p>
 
   <p>
-    <%= order_item.quantity %>
+    <% if @order.draft? %>
+      <%= render "order_items/form", order_item: %>
+    <% else %>
+      <%= order_item.quantity %>
+    <% end %>
     X
     <%= order_item.product.price / 100.to_d %>
     <%= t("config.currency") %>
