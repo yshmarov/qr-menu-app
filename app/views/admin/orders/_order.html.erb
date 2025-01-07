@@ -20,7 +20,7 @@
     <p>
       <%= link_to [:admin, order] do %>
         <strong>Items ordered:</strong>
-        <%= order.order_items.map(&:quantity).sum %>
+        <%= order.order_items_quantity %>
       <% end %>
     </p>
   <% end %>

@@ -22,7 +22,7 @@
   <% if action_name != "show" %>
     <p>
       <%= link_to order do %>
-        <mark><%= order.order_items.map(&:quantity).sum %></mark>
+        <mark><%= order.order_items_quantity %></mark>
         <strong><%= t(".items") %></strong>
       <% end %>
     </p>

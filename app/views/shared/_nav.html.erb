@@ -20,7 +20,7 @@
     <%= active_link_to @current_order do %>
       <%#= @current_order.id %>
       <i class="fa-solid fa-cart-shopping"></i>
-      <mark><%= @current_order.order_items.map(&:quantity).sum %></mark>
+      <mark><%= @current_order.order_items_quantity %></mark>
     <% end %>
   <% end %>
 </nav>
