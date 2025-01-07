@@ -23,7 +23,7 @@ class ShopControllerTest < ActionDispatch::IntegrationTest
     post add_to_cart_path(product2.id)
     assert_redirected_to products_path
     assert_equal "#{product2.name} added to cart", flash[:notice]
-    assert_equal 2, order.order_items_quantity
+    assert_equal 2, order.reload.order_items_quantity
     assert_equal 2, order.order_items.count
 
     post add_to_cart_path(product2.id)
