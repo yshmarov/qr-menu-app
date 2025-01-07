@@ -1,45 +1,48 @@
 <footer>
   <div>
-    <%= t('config.trade_name') %>
+    <%= t("config.trade_name") %>
     ©
     <%= Time.zone.now.year %>
   </div>
 
   <div>
-    <%= render 'shared/social_links' %>
+    <%= render "shared/social_links" %>
   </div>
 
   <div>
-    <%= t('config.address') %>
+    <%= t("config.address") %>
   </div>
 
   <div>
-    <%= t('config.trade_vat_number') %>
+    <%= t("config.trade_vat_number") %>
   </div>
 
   <div>
-    <%= mail_to t('config.email') %>
+    <%= mail_to t("config.email") %>
   </div>
 
   <div>
-    <%= t('config.phone') %>
+    <%= t("config.phone") %>
   </div>
 
   <div>
-  <%= link_to admin_orders_path do %>
-      <%= t('admin.orders.index.title') %>
+    <%= link_to admin_orders_path do %>
+      <i class="fa fa-lock"></i>
+      <%= t("admin.orders.index.title") %>
     <% end %>
   </div>
 
   <div>
     <%= link_to [:admin, :products] do %>
-      <%= t('admin.products.index.title') %>
+      <i class="fa fa-lock"></i>
+      <%= t("admin.products.index.title") %>
     <% end %>
   </div>
 
   <div>
     <%= link_to admin_stats_path do %>
-      <%= t('admin.stats.index.title') %>
+      <i class="fa fa-lock"></i>
+      <%= t("admin.stats.index.title") %>
     <% end %>
   </div>
 </footer>
