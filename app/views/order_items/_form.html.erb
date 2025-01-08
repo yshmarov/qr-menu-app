@@ -1,6 +1,6 @@
 <%= form_for [order_item.order, order_item], method: :put do |f| %>
   <div>
     <%= f.label :quantity %>
-    <%= f.number_field :quantity, min: 1, oninput: "this.form.requestSubmit()" %>
+    <%= f.number_field :quantity, min: 1, oninput: "this.form.requestSubmit()", required: true %>
   </div>
 <% end %>
