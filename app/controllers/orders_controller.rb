@@ -11,7 +11,8 @@ class OrdersController < ApplicationController
   end
 
   def update
-    # TODO: should be impossible to submit order with 0 items
+    return redirect_to @order, notice: "Order must have at least one item" if @order.order_items.empty?
+    # TODO: the status should not be editable from here. it can only be moved from Draft to Submitted when payment is successful
     # TODO: implement payment
     # change status (pay)
     return unless @order.update(order_params)
