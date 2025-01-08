@@ -6,7 +6,9 @@ class OrdersController < ApplicationController
     @orders = @my_orders.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @order_items = @order.order_items.order(created_at: :desc)
+  end
 
   def update
     # TODO: should be impossible to submit order with 0 items
