@@ -28,12 +28,12 @@ class OrdersController < ApplicationController
   def handle_payment
     # TODO: implement payment
     @order.submitted!
-    "Ordered!"
+    t(".submitted")
   end
 
   def handle_rating
     @order.update(order_params)
-    "Your rating: #{order_params[:rating]}"
+    t(".rating")
   end
 
   def set_order
