@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_07_230638) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_10_230821) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -18,7 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_07_230638) do
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
     t.integer "quantity", default: 0, null: false
-    t.integer "total_price", default: 0, null: false
+    t.bigint "total_price", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_07_230638) do
     t.string "user_id", null: false
     t.integer "rating"
     t.text "delivery_details"
-    t.integer "total_price", default: 0, null: false
+    t.bigint "total_price", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_items_quantity", default: 0, null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_07_230638) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
+    t.bigint "price"
     t.string "image_url"
     t.string "category", default: "food", null: false
     t.text "description"
