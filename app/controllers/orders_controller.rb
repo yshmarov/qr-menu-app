@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def update
     return redirect_to @order, notice: "Order must have at least one item" if @order.order_items.empty?
+    return redirect_to @order, notice: "Order is not in draft or done status" unless @order.draft? || @order.done?
 
     case @order.status
     when "draft"
@@ -20,7 +21,7 @@ class OrdersController < ApplicationController
       notice = handle_rating
     end
 
-    redirect_to order_url(@order), notice:
+    redirect_to @order, notice:
   end
 
   private
