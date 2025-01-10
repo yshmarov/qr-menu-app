@@ -22,23 +22,8 @@ class Order < ApplicationRecord
                      processing: "yellow",
                      delivery: "green" }.freeze
 
-  # protected
   after_update_commit do
-    broadcast_queue
-    broadcast_order_status
-  end
-
-  def broadcast_queue
-    # TODO: update order.done -> broadcast remove from queue
-    unless draft?
-      broadcast_append_to :orders_list, target: "queue", partial: "queue/queue_item", locals: { order: self }
-    end
-    broadcast_update_to :orders_list, target: "queue_count", html: Order.queued.count
-  end
-
-  def broadcast_order_status
-    # so that the customer does not need to open queue. He can see it on the order page
-    broadcast_update_to [ self, :status ], target: "order_status", partial: "orders/status", locals: { order: self }
+    broadcast_refresh_to :orders
   end
 
   def calculate_total_price
