@@ -5,6 +5,25 @@
 
 <%= link_to "Add product", %i[new admin product] %>
 
-<section id="products" class="grid-cols-auto-fit">
-  <%= render collection: @products, partial: "product", as: :product %>
-</section>
+<header>
+  <nav>
+    <% @categories.each do |category| %>
+      <%= active_link_to url_for(category:) do %>
+        <%= I18n.t("config.categories.#{category}") %>
+      <% end %>
+    <% end %>
+    <%= link_to t(".all"), request.path if request.query_parameters.any? %>
+    <%#= render "products/search_form" %>
+  </nav>
+</header>
+
+<div>
+  <% @grouped_products.each do |category, products| %>
+    <h3><%= link_to t("config.categories.#{category}"), "##{category.parameterize}" %></h3>
+    <div id="<%= category.parameterize %>">
+      <div class="grid-cols-auto-fit">
+        <%= render collection: products, partial: "product", as: :product %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -2,7 +2,16 @@ class Admin::ProductsController < SecuredController
   before_action :set_product, only: %i[edit update destroy]
 
   def index
-    @products = Product.order(name: :asc)
+    @categories = Product.distinct.pluck(:category).sort
+    products = if params[:category].present?
+                    Product.where(category: params[:category]).order(name: :asc)
+    else
+                    Product.order(category: :asc, name: :asc)
+    end
+    products = products.search(params[:query]) if params[:query].present?
+    @grouped_products = products.group_by(&:category)
+
+    # render "products/index"
   end
 
   def new
