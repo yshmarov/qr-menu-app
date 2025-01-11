@@ -9,6 +9,9 @@ class Product < ApplicationRecord
 
   scope :search, ->(query) { where("name ILIKE ?", "%#{query}%") }
 
+  extend FriendlyId
+  friendly_id :name, use: [:finders, :slugged]
+
   def self.categories
     I18n.t("config.categories")
   end

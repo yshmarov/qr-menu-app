@@ -65,3 +65,5 @@ end
 
 gem "chartkick"
 gem "groupdate"
+
+gem "friendly_id", "~> 5.5"

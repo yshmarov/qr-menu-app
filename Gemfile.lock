@@ -109,6 +109,8 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    friendly_id (5.5.1)
+      activerecord (>= 4.0.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -344,6 +346,7 @@ DEPENDENCIES
   chartkick
   debug
   erb-formatter (~> 0.7.3)
+  friendly_id (~> 5.5)
   groupdate
   importmap-rails
   jbuilder
