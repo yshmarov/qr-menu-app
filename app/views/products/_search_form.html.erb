@@ -3,7 +3,7 @@
 
   <%= form.collection_radio_buttons :category, Product.categories, :first, :last, checked: params[:category] do |b| %>
     <div>
-      <%= b.radio_button %>
+      <%= b.radio_button onchange: "this.form.requestSubmit()" %>
       <%= b.label %>
     </div>
   <% end %>
