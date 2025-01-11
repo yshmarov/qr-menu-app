@@ -1,3 +1,5 @@
-<mark style="background-color: <%= Order::COLOR_STATUSES[order.status.to_sym] %>">
-  <%= t("activerecord.attributes.order.statuses.#{order.status}") %>
-</mark>
+<% order.statuses_for_display.each do |status| %>
+  <mark style="<%= 'font-weight: bold;' if order.status == status %>">
+    <%= t("activerecord.attributes.order.statuses.#{status}") %>
+  </mark>
+<% end %>

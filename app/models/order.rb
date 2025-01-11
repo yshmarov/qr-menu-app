@@ -18,9 +18,15 @@ class Order < ApplicationRecord
     Order.statuses.keys.split(status).last.first
   end
 
-  COLOR_STATUSES = { submitted: "red",
-                     processing: "yellow",
-                     delivery: "green" }.freeze
+  def statuses_for_display
+    if status == "draft"
+      [status]
+    elsif status == "done"
+      [status]
+    else
+      Order.statuses.reject { |k, _v| %w[draft done].include?(k) }.keys
+    end
+  end
 
   after_update_commit do
     broadcast_refresh_to :orders
