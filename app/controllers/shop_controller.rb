@@ -26,10 +26,8 @@ class ShopController < ApplicationController
     # balance calculation
     order_item.calculate_total_price
 
-    @current_order = order
-
     notice = "#{product.name} added to cart"
 
-    redirect_to products_path, notice:
+    redirect_back(fallback_location: products_path, notice:)
   end
 end
