@@ -22,7 +22,7 @@ en:
     attributes:
       product:
         name: Name
-        price: Price
+        price: Price, %{currency}
         category: Category
         image_url: Image URL
       order:
