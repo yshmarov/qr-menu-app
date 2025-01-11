@@ -3,12 +3,13 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Product.distinct.pluck(:category).sort
-    @products = if params[:category].present?
+    products = if params[:category].present?
                     Product.where(category: params[:category]).order(name: :asc)
     else
-                    Product.order(category: :desc, name: :asc)
+                    Product.order(category: :asc, name: :asc)
     end
-    @products = @products.search(params[:query]) if params[:query].present?
+    products = products.search(params[:query]) if params[:query].present?
+    @grouped_products = products.group_by(&:category)
   end
 
   def show; end

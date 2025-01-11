@@ -15,6 +15,13 @@
   </nav>
 </header>
 
-<div id="shop" class="grid-cols-auto-fit">
-  <%= render collection: @products, partial: "products/product", as: :product %>
+<div>
+  <% @grouped_products.each do |category, products| %>
+    <h3><%= link_to t("config.categories.#{category}"), "##{category.parameterize}" %></h3>
+    <div id="<%= category.parameterize %>">
+      <div class="grid-cols-auto-fit">
+        <%= render collection: products, partial: "products/product", as: :product %>
+      </div>
+    </div>
+  <% end %>
 </div>
