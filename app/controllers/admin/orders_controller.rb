@@ -11,8 +11,7 @@ module Admin
 
     def update
       if @order.update(status: @order.next_status)
-        redirect_to [ :admin, @order ],
-                    notice: "Status updated: #{@order.status_previous_change}."
+        redirect_back fallback_location: [ :admin, @order ], notice: "Status updated: #{@order.status_previous_change}."
       else
         render :edit, status: :unprocessable_entity
       end
