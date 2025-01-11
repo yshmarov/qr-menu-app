@@ -18,6 +18,9 @@ class ShopControllerTest < ActionDispatch::IntegrationTest
     assert_equal product, order.products.first
     assert_equal 1, order.order_items.first.quantity
     assert_equal "To go", order.delivery_details
+    assert_equal 599, order.total_price
+    assert_equal 599, order.order_items.first.total_price
+    assert_equal 599, order.order_items.first.price
 
     product2 = products(:rafaello)
     post add_to_cart_path(product2.id)
@@ -26,9 +29,21 @@ class ShopControllerTest < ActionDispatch::IntegrationTest
     assert_equal 2, order.reload.order_items_quantity
     assert_equal 2, order.order_items.count
 
+    assert_equal 698, order.total_price
+    assert_equal 599, order.order_items.first.total_price
+    assert_equal 599, order.order_items.first.price
+    assert_equal 99, order.order_items.second.price
+    assert_equal 99, order.order_items.second.total_price
+
     post add_to_cart_path(product2.id)
     order.reload
     assert_equal 3, order.order_items_quantity
     assert_equal 2, order.order_items.count
+
+    assert_equal 797, order.total_price
+    assert_equal 599, order.order_items.first.total_price
+    assert_equal 599, order.order_items.first.price
+    assert_equal 99, order.order_items.second.price
+    assert_equal 198, order.order_items.second.total_price
   end
 end
