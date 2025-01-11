@@ -28,20 +28,8 @@ class ShopController < ApplicationController
 
     @current_order = @order
 
-    notice_text = "#{@product.name} added to cart"
+    notice = "#{@product.name} added to cart"
 
-    respond_to do |format|
-      format.html do
-        redirect_to products_path, notice: notice_text
-      end
-      format.turbo_stream do
-        flash.now[:notice] = notice_text
-        render turbo_stream: [
-          turbo_stream.replace(@product, partial: "products/product", locals: { product: @product }),
-          turbo_stream.replace("nav", partial: "shared/nav"),
-          turbo_stream.replace("flash", partial: "shared/flash")
-        ]
-      end
-    end
+    redirect_to products_path, notice:
   end
 end
