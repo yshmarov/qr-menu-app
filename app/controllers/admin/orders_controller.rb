@@ -10,9 +10,7 @@ module Admin
     def show; end
 
     def update
-      # @order.update(order_params)
-      # redirect_to root_url
-      if @order.update(order_params)
+      if @order.update(status: @order.next_status)
         redirect_to [ :admin, @order ],
                     notice: "Status updated: #{@order.status_previous_change}."
       else
@@ -24,10 +22,6 @@ module Admin
 
     def set_order
       @order = Order.find(params[:id])
-    end
-
-    def order_params
-      params.require(:order).permit(:status)
     end
   end
 end

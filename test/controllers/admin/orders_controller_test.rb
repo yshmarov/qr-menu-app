@@ -23,10 +23,9 @@ class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "update" do
     order = Order.create!(status: Order.statuses[:submitted], user_id: 1)
-    patch admin_order_url(order), headers: @headers, params: {
-      order: { status: Order.statuses[:processing] }
-    }
+    patch admin_order_url(order), headers: @headers
 
     assert_redirected_to admin_order_url(order)
+    assert_equal "processing", order.reload.status
   end
 end
