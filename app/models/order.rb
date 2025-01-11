@@ -24,6 +24,7 @@ class Order < ApplicationRecord
 
   after_update_commit do
     broadcast_refresh_to :orders
+    broadcast_refresh
   end
 
   def calculate_total_price
