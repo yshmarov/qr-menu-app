@@ -8,5 +8,6 @@ class OrderItem < ApplicationRecord
 
   def calculate_total_price
     update(price: product.price, total_price: quantity * product.price)
+    order.calculate_total_price
   end
 end

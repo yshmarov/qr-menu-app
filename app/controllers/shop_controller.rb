@@ -25,7 +25,6 @@ class ShopController < ApplicationController
     @order_item.increment!(:quantity)
     # balance calculation
     @order_item.calculate_total_price
-    @order.calculate_total_price
 
     @current_order = @order
 

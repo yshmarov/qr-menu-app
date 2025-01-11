@@ -5,7 +5,6 @@ class OrderItemsController < ApplicationController
   def update
     @order_item.update(order_item_params)
     @order_item.calculate_total_price
-    @order_item.order.calculate_total_price
     redirect_to @order_item.order, notice: t(".update.notice")
   end
 
