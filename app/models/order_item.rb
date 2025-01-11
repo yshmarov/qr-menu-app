@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
   validates :quantity, numericality: { greater_than: 0 }
 
   extend FriendlyId
-  friendly_id :generate_random_slug, use: [:finders, :slugged]
+  friendly_id :generate_random_slug, use: [ :finders, :slugged ]
 
   def calculate_total_price
     update(price: product.price, total_price: quantity * product.price)

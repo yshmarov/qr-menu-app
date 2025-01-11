@@ -15,7 +15,7 @@ class Order < ApplicationRecord
   scope :queued, -> { where(status: %w[submitted processing delivery]) }
 
   extend FriendlyId
-  friendly_id :generate_random_slug, use: [:finders, :slugged]
+  friendly_id :generate_random_slug, use: [ :finders, :slugged ]
 
   def next_status
     Order.statuses.keys.split(status).last.first
@@ -23,9 +23,9 @@ class Order < ApplicationRecord
 
   def statuses_for_display
     if status == "draft"
-      [status]
+      [ status ]
     elsif status == "done"
-      [status]
+      [ status ]
     else
       Order.statuses.reject { |k, _v| %w[draft done].include?(k) }.keys
     end
