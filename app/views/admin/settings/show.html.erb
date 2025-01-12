@@ -15,20 +15,20 @@
     <% Setting.defined_fields.group_by { |f| f[:scope] }.each do |scope, fields| %>
       <div>
         <h3><%= scope.to_s.titleize %></h3>
-        
+
         <% fields.each do |field| %>
           <div>
             <% field_name = field[:key] %>
             <% field_type = field[:type] %>
             <% readonly = field[:readonly] %>
-            
+
             <label for="setting_<%= field_name %>"><%= field_name.humanize %></label>
-            
+
             <% case field_type %>
             <% when :boolean %>
               <div>
-                <%= f.check_box field_name, 
-                              checked: Setting.send(field_name), 
+                <%= f.check_box field_name,
+                              checked: Setting.send(field_name),
                               disabled: readonly %>
               </div>
             <% when :array %>
@@ -53,7 +53,7 @@
                 <%= field[:options][:help_text] %>
               </small>
             <% end %>
-            
+
             <% if readonly %>
               <small>
                 <em>This setting is readonly</em>
