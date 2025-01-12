@@ -4,7 +4,7 @@
     <%= t("products.index.title") %>
   <% end %>
 
-  <% if I18n.t("config.public_order_queue") %>
+  <% if Setting.public_order_queue %>
     <%= active_link_to queue_path do %>
       <i class="fa-solid fa-stopwatch"></i>
       <%= t("queue.index.title") %>

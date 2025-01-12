@@ -6,7 +6,7 @@
       <%= link_to_unless_current highlight(product.name, params[:query]), product %>
     </h5>
     <%= product.price / 100.to_d %>
-    <%= t("config.currency") %>
+    <%= Setting.currency %>
   </p>
 
   <p><%= product.description %></p>

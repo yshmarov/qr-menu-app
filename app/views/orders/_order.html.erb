@@ -32,7 +32,7 @@
     <i class="fa-solid fa-credit-card"></i>
     <%= order_pay_label(order) %>
     <%= order.total_price / 100.to_d %>
-    <%= t("config.currency") %>
+    <%= Setting.currency %>
   <% end %>
 
   <% if order.done? %>

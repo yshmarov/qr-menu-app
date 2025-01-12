@@ -1,14 +1,5 @@
 en:
   config:
-    app_name: Snack Bar by Yaro
-    description: Self checkout snack bar
-    address: ul. Kowalska 123, 00-000 Warszawa
-    currency: $
-    email: info@snackbarbyyaro.com
-    phone: +48 123 456 789
-    trade_name: 'Snack Bar By Yaro LLC'
-    trade_vat_number: 'PL1234567890'
-    public_order_queue: true
     socials:
       instagram: https://www.instagram.com/yaro_the_slav
       twitter: https://twitter.com/yarotheslav
@@ -73,3 +64,6 @@ en:
     products:
       index:
         title: Edit products
+    settings:
+      index:
+        title: Settings

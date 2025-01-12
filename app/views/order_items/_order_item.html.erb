@@ -14,10 +14,10 @@
     <% end %>
     X
     <%= order_item.product.price / 100.to_d %>
-    <%= t("config.currency") %>
+    <%= Setting.currency %>
     =
     <%= order_item.total_price / 100.to_d %>
-    <%= t("config.currency") %>
+    <%= Setting.currency %>
   </p>
 
   <%= button_to [order_item.order, order_item], method: :delete, disabled: !@order.draft? do %>
