@@ -2,7 +2,6 @@ module Admin
   class OrdersController < SecuredController
     before_action :set_order, only: %i[show update]
 
-    # orders being worked on
     def index
       @orders = Order.queued.order(created_at: :desc)
     end
@@ -11,7 +10,7 @@ module Admin
 
     def update
       if @order.update(status: @order.next_status)
-        redirect_back fallback_location: [ :admin, @order ], notice: "Status updated: #{@order.status_previous_change}."
+        redirect_back fallback_location: [ :admin, @order ], notice: "Status updated."
       else
         render :edit, status: :unprocessable_entity
       end
