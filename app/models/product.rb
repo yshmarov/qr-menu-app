@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   friendly_id :name, use: [ :finders, :slugged ]
 
   def self.categories
-    I18n.t("config.categories")
+    I18n.t("activerecord.attributes.product.categories")
   end
 
   validates :category, inclusion: { in: categories.stringify_keys.keys }

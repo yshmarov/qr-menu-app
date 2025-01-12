@@ -1,14 +1,4 @@
 en:
-  config:
-    socials:
-      instagram: https://www.instagram.com/yaro_the_slav
-      twitter: https://twitter.com/yarotheslav
-      tiktok: ''
-      linkedin: ''
-    categories:
-      food: Food
-      drinks: Drinks
-      other: Other
   activerecord:
     attributes:
       product:
@@ -16,6 +6,10 @@ en:
         price: Price, %{currency}
         category: Category
         image_url: Image URL
+        categories:
+          food: Food
+          drinks: Drinks
+          other: Other
       order:
         delivery_details: Delivery
         status: Status
