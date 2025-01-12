@@ -19,4 +19,18 @@ class Setting < RailsSettings::Base
   scope :application do
     field :public_order_queue, default: true, type: :boolean
   end
+
+  field :socials, type: :hash, default: {
+    instagram: "https://www.instagram.com/yaro_the_slav",
+    twitter: "https://twitter.com/yarotheslav",
+    tiktok: "",
+    linkedin: "",
+    youtube: "",
+    facebook: "",
+    pinterest: "",
+    twitch: "",
+    discord: "",
+    telegram: "",
+    whatsapp: ""
+  }
 end
