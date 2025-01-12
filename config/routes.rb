@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resource :settings
     resources :products, except: :show
     resources :orders, only: %i[index show update]
     resources :stats, only: :index

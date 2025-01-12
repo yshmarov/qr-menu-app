@@ -1,0 +1,71 @@
+<div>
+  <h2>Application Settings</h2>
+
+  <%= form_with(model: Setting.new, url: admin_settings_path) do |f| %>
+    <% if @errors&.any? %>
+      <div>
+        <ul>
+          <% @errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% Setting.defined_fields.group_by { |f| f[:scope] }.each do |scope, fields| %>
+      <div>
+        <h3><%= scope.to_s.titleize %></h3>
+        
+        <% fields.each do |field| %>
+          <div>
+            <% field_name = field[:key] %>
+            <% field_type = field[:type] %>
+            <% readonly = field[:readonly] %>
+            
+            <label for="setting_<%= field_name %>"><%= field_name.humanize %></label>
+            
+            <% case field_type %>
+            <% when :boolean %>
+              <div>
+                <%= f.check_box field_name, 
+                              checked: Setting.send(field_name), 
+                              disabled: readonly %>
+              </div>
+            <% when :array %>
+              <%= f.text_area field_name,
+                            value: Setting.send(field_name)&.join("\n"),
+                            rows: 3,
+                            disabled: readonly %>
+            <% when :hash %>
+              <%= f.text_area field_name,
+                            value: YAML.dump(Setting.send(field_name)),
+                            rows: 5,
+                            disabled: readonly %>
+              <small>Use YAML format</small>
+            <% else %>
+              <%= f.text_field field_name,
+                             value: Setting.send(field_name),
+                             disabled: readonly %>
+            <% end %>
+
+            <% if field[:options]&.dig(:help_text).present? %>
+              <small>
+                <%= field[:options][:help_text] %>
+              </small>
+            <% end %>
+            
+            <% if readonly %>
+              <small>
+                <em>This setting is readonly</em>
+              </small>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.submit 'Save Settings' %>
+    </div>
+  <% end %>
+</div>
