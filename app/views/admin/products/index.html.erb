@@ -9,7 +9,7 @@
   <nav>
     <% @categories.each do |category| %>
       <%= active_link_to url_for(category:) do %>
-        <%= I18n.t("config.categories.#{category}") %>
+        <%= I18n.t("activerecord.attributes.product.categories.#{category}") %>
       <% end %>
     <% end %>
     <%= link_to t(".all"), request.path if request.query_parameters.any? %>
@@ -19,7 +19,7 @@
 
 <div>
   <% @grouped_products.each do |category, products| %>
-    <h3><%= link_to t("config.categories.#{category}"), "##{category.parameterize}" %></h3>
+    <h3><%= link_to t("activerecord.attributes.product.categories.#{category}"), "##{category.parameterize}" %></h3>
     <div id="<%= category.parameterize %>">
       <div class="grid-cols-auto-fit">
         <%= render collection: products, partial: "product", as: :product %>

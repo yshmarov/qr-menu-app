@@ -33,7 +33,7 @@
   </div>
 
   <div>
-    <%= form.label :price, t("activerecord.attributes.product.price", currency: t("config.currency")), style: "display: block" %>
+    <%= form.label :price, t("activerecord.attributes.product.price", currency: Setting.currency), style: "display: block" %>
     <%= form.number_field :price %>
   </div>
 

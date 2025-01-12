@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= t("config.app_name") %></title>
+    <title><%= Setting.app_name %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -23,10 +23,10 @@
     <header>
       <h1>
         <i class="fa-solid fa-utensils"></i>
-        <%= t("config.app_name") %>
+        <%= Setting.app_name %>
       </h1>
       <p>
-        <%= t("config.description") %>
+        <%= Setting.description %>
         <%# TODO: display table delivery %>
         <%#= session[:table_delivery] %>
       </p>
