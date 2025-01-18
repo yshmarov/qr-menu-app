@@ -3,7 +3,7 @@ en:
     attributes:
       product:
         name: Name
-        price: Price, %{currency}
+        price: Price
         category: Category
         image_url: Image URL
         categories:
