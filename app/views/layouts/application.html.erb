@@ -12,7 +12,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer">
+      referrerpolicy="no-referrer"
+    >
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
@@ -20,7 +21,7 @@
   </head>
 
   <body>
-    <header>
+    <header style="position: sticky; top: 0; z-index: 100;">
       <h1>
         <i class="fa-solid fa-utensils"></i>
         <%= Setting.app_name %>
