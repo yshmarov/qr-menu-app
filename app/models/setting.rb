@@ -8,8 +8,10 @@ class Setting < RailsSettings::Base
     field :description, default: "Self checkout snack bar", type: :text, validates: { presence: true, length: { in: 2..200 } }
   end
 
+  ENABLED_CURRENCIES = %w[USD EUR PLN]
+
   scope :payments do
-    field :currency, default: "USD", type: :string
+    field :currency, default: "USD", type: :string, validates: { presence: true, inclusion: { in: ENABLED_CURRENCIES } }, option_values: ENABLED_CURRENCIES
   end
 
   scope :legal do
