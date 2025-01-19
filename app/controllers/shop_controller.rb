@@ -13,7 +13,9 @@ class ShopController < ApplicationController
     order = @current_order.presence || Order.create(
       status: Order.statuses[:draft],
       delivery_details:,
-      user_id: current_guest_id
+      user_id: current_guest_id,
+      ip_address: request.remote_ip,
+      user_agent: request.user_agent
     )
     # clear table for next order creation
     session[:table_delivery] = nil
