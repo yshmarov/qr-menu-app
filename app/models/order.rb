@@ -33,7 +33,9 @@ class Order < ApplicationRecord
   end
 
   def calculate_total_price
-    update(total_price: order_items.map(&:total_price).sum)
-    update(order_items_quantity: order_items.map(&:quantity).sum)
+    update(
+      total_price: order_items.sum(&:total_price),
+      order_items_quantity: order_items.sum(&:quantity)
+    )
   end
 end
