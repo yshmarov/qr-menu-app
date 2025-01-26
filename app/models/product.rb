@@ -7,7 +7,13 @@ class Product < ApplicationRecord
   has_many :order_items, dependent: :restrict_with_error
   has_many :orders, through: :order_items
 
-  scope :search, ->(query) { where("name ILIKE ?", "%#{query}%") }
+  scope :search, ->(query) {
+    if ActiveRecord::Base.connection.adapter_name.downcase == "postgresql"
+      where("name ILIKE ?", "%#{query}%")
+    else
+      where("LOWER(name) LIKE ?", "%#{query.downcase}%")
+    end
+  }
 
   extend FriendlyId
   friendly_id :name, use: [ :finders, :slugged ]
