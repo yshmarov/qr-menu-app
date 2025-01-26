@@ -16,6 +16,8 @@
     <%= t("orders.index.title") %>
   <% end %>
 
+  <%= button_to "Checkout", checkout_path, method: :post %>
+
   <% if @current_order %>
     <%= active_link_to @current_order do %>
       <%#= @current_order.id %>

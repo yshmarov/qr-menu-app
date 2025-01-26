@@ -68,4 +68,5 @@ gem "groupdate"
 
 gem "friendly_id", "~> 5.5"
 gem "rails-settings-cached"
+gem "stripe"
 gem "active_link_to"

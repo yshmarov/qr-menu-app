@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :orders, except: %i[destroy new create edit] do
     resources :order_items, only: %i[destroy update]
   end
+  post "checkout", to: "checkout#create"
 
   namespace :admin do
     resource :settings
