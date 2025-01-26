@@ -11,17 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_01_12_110025) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_catalog.plpgsql"
-
   create_table "order_items", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "product_id", null: false
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
     t.integer "quantity", default: 0, null: false
     t.bigint "total_price", default: 0, null: false
+    t.bigint "price", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "price", default: 0, null: false
     t.string "slug"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
@@ -34,9 +31,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_12_110025) do
     t.integer "rating"
     t.text "delivery_details"
     t.bigint "total_price", default: 0, null: false
+    t.integer "order_items_quantity", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "order_items_quantity", default: 0, null: false
     t.string "slug"
     t.index ["slug"], name: "index_orders_on_slug", unique: true
   end

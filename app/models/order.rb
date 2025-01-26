@@ -22,13 +22,9 @@ class Order < ApplicationRecord
   end
 
   def statuses_for_display
-    if status == "draft"
-      [ status ]
-    elsif status == "done"
-      [ status ]
-    else
-      Order.statuses.reject { |k, _v| %w[draft done].include?(k) }.keys
-    end
+    return [ status ] if %w[draft done].include?(status)
+
+    self.class.statuses.reject { |k, _v| %w[draft done].include?(k) }.keys
   end
 
   after_update_commit do
@@ -37,7 +33,9 @@ class Order < ApplicationRecord
   end
 
   def calculate_total_price
-    update(total_price: order_items.map(&:total_price).sum)
-    update(order_items_quantity: order_items.map(&:quantity).sum)
+    update(
+      total_price: order_items.sum(&:total_price),
+      order_items_quantity: order_items.sum(&:quantity)
+    )
   end
 end

@@ -8,7 +8,7 @@
 <header>
   <nav>
     <% @categories.each do |category| %>
-      <%= active_link_to url_for(category:) do %>
+      <%= active_link_to url_for(category:), active: :exact do %>
         <%= I18n.t("activerecord.attributes.product.categories.#{category}") %>
       <% end %>
     <% end %>
