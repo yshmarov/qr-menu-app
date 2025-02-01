@@ -6,10 +6,10 @@
     <%= form.label :category, t(".all"), value: "" %>
   </div>
 
-  <% Product.categories.each do |value, label| %>
+  <% @categories.each do |value| %>
     <div>
       <%= form.radio_button :category, value, onchange: "this.form.requestSubmit()", checked: params[:category].to_s == value.to_s %>
-      <%= form.label :category, label, value: value %>
+      <%= form.label :category, I18n.t("activerecord.attributes.product.categories.#{value}"), value: value %>
     </div>
   <% end %>
 
