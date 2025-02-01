@@ -28,6 +28,7 @@ en:
       placeholder: Search products...
       submit: Search
       all: All
+      clear: Clear search
     product:
       add_to_cart: Add to cart
   orders:

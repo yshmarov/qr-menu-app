@@ -1,6 +1,4 @@
 <%= form_with url: url_for, method: :get do |form| %>
-  <%= form.search_field :query, value: params[:query], placeholder: t(".placeholder"), autocomplete: "off", autocorrect: "off" %>
-
   <div>
     <%= form.radio_button :category, "", onchange: "this.form.requestSubmit()", checked: params[:category].blank? %>
     <%= form.label :category, t(".all"), value: "" %>
@@ -13,5 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.search_field :query, value: params[:query], placeholder: t(".placeholder"), autocomplete: "off", autocorrect: "off" %>
   <%= form.submit t(".submit") %>
 <% end %>
+
+<%= link_to t(".clear"), request.path if request.query_parameters.any? %>
