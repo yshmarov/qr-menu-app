@@ -3,17 +3,8 @@
   <%= t(".title") %>
 </h1>
 
-<header>
-  <nav>
-    <% @categories.each do |category| %>
-      <%= active_link_to products_path(category:), active: :exact do %>
-        <%= I18n.t("activerecord.attributes.product.categories.#{category}") %>
-      <% end %>
-    <% end %>
-    <%= link_to t(".all"), request.path if request.query_parameters.any? %>
-    <%#= render "products/search_form" %>
-  </nav>
-</header>
+<%#= render "products/filters" %>
+<%= render "products/search_form" %>
 
 <div>
   <% @grouped_products.each do |category, products| %>

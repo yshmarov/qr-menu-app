@@ -27,6 +27,7 @@ en:
     search_form:
       placeholder: Search products...
       submit: Search
+      all: All
     product:
       add_to_cart: Add to cart
   orders:

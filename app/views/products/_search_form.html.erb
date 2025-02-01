@@ -1,10 +1,15 @@
 <%= form_with url: url_for, method: :get do |form| %>
   <%= form.search_field :query, value: params[:query], placeholder: t(".placeholder"), autocomplete: "off", autocorrect: "off" %>
 
-  <%= form.collection_radio_buttons :category, Product.categories, :first, :last, checked: params[:category] do |b| %>
+  <div>
+    <%= form.radio_button :category, "", onchange: "this.form.requestSubmit()", checked: params[:category].blank? %>
+    <%= form.label :category, t(".all"), value: "" %>
+  </div>
+
+  <% Product.categories.each do |value, label| %>
     <div>
-      <%= b.radio_button onchange: "this.form.requestSubmit()" %>
-      <%= b.label %>
+      <%= form.radio_button :category, value, onchange: "this.form.requestSubmit()", checked: params[:category].to_s == value.to_s %>
+      <%= form.label :category, label, value: value %>
     </div>
   <% end %>
 
